@@ -53,7 +53,7 @@ Paltenghi, M., & Pradel, M. (2023, May). MorphQ: Metamorphic testing of the qisk
 * Improvement vs previous work: Higher code coverage and diversity within follow-up programs
 
 
-### Future work / Aplications / Lacks:
+### Future work / Applications / Lacks:
 * Automating the crash cluster and minimization as there is manual inspection of a subset of each cluster
 * It may be adapted to other quantum platforms, circuit-based model
 * Only used in simulators to avoid false positives
