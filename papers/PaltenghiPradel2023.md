@@ -19,7 +19,6 @@ Paltenghi, M., & Pradel, M. (2023, May). MorphQ: Metamorphic testing of the qisk
     * Change of opt level
     * Change of backend
 
-
 1. What does MorphQ bring new to the table?
    * Quantum program generator, with an specific grammar proposal
    * New approach through metamorphic testing, to test quantum platforms,in particular Qiskit,  influenced by the classical idea of compiler testing.
