@@ -1,6 +1,6 @@
 Paltenghi, M., & Pradel, M. (2023, May). MorphQ: Metamorphic testing of the qiskit quantum computing platform. In 2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE) (pp. 2413-2424). IEEE
 
-##Bullet points
+## Bullet points
 1. Presents MorphQ as a tester for Qiskit's platform.
 
 1. It uses 10 Qiskit metamorphic relations to approach testing, all of them in 3 big groups:
@@ -45,7 +45,7 @@ Paltenghi, M., & Pradel, M. (2023, May). MorphQ: Metamorphic testing of the qisk
      * Manually reverse every transformation until the one responsible for the crash is found.
 
 
-##Outcome:
+## Outcome:
 * Generating automatically over 8k non-crashing quantum programs
 * Metamorphic transformations leads to a 23% follow-up crash programs. Only 56 of non-crashing programs doesn't fulfil the KS test. 
 * Reports 13 bugs in Qiskit platform, 9 of them confirmed by Qiskit [Table III]
@@ -54,20 +54,20 @@ Paltenghi, M., & Pradel, M. (2023, May). MorphQ: Metamorphic testing of the qisk
 * Improvement vs previous work: Higher code coverage and diversity within follow-up programs
 
 
-##Future work / Aplications / Lacks:
+## Future work / Aplications / Lacks:
 * Automating the crash cluster and minimization as there is manual inspection of a subset of each cluster
 * It may be adapted to other quantum platforms, circuit-based model
 * Only used in simulators to avoid false positives
 
-##Data:
+## Data:
 https://github.com/sola-st/ MorphQ-Quantum-Qiskit-Testing-ICSE-23
 
-##Unfamiliar items:
+## Unfamiliar items:
 * Differential testing
 * Delta debugging
 
 
-##Articles ([Ref] and abstraction) :
+## Articles ([Ref] and abstraction) :
 
 * [1] Quantum platforms(Qiskit) full of bugs, unrelated to classical bugs.
 * [2] Oracle problem in quantum
