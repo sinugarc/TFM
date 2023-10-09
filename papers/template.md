@@ -8,7 +8,7 @@
 * 2
 
 
-### Future work / Aplications / Lacks:
+### Future work / Applications / Lacks:
 * 3
 
 ### Data:
