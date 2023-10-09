@@ -3,7 +3,7 @@ Paltenghi, M., & Pradel, M. (2023, May). MorphQ: Metamorphic testing of the qisk
 ## Bullet points
 1. Presents MorphQ as a tester for Qiskit's platform.
 
-1. It uses 10 Qiskit metamorphic relations to approach testing, all of them in 3 big groups:
+* It uses 10 Qiskit metamorphic relations to approach testing, all of them in 3 big groups:
   * Circuit transformation
     * Change of qubit order (non-semantic-preserving)
     * Inject null-effect operation (gate and gate.inverse(), no measurement)
@@ -19,13 +19,13 @@ Paltenghi, M., & Pradel, M. (2023, May). MorphQ: Metamorphic testing of the qisk
     * Change of opt level
     * Change of backend
 
-1. What does MorphQ bring new to the table?
+* What does MorphQ bring new to the table?
    * Quantum program generator, with an specific grammar proposal
    * New approach through metamorphic testing, to test quantum platforms,in particular Qiskit,  influenced by the classical idea of compiler testing.
 
-1. QDiff as probably the only option before MorphQ on testing quantum platforms, Qdiff uses manually written programs and is based on differential testing
+* QDiff as probably the only option before MorphQ on testing quantum platforms, Qdiff uses manually written programs and is based on differential testing
 
-1. MorphQ steps:
+* MorphQ steps:
 
    * Generating programs
      * A random approach won't be ideal as it will highly likely generate invalid programs
@@ -37,7 +37,7 @@ Paltenghi, M., & Pradel, M. (2023, May). MorphQ: Metamorphic testing of the qisk
      * Crash difference, if the transform program crashes, as it has been seen that none of the automatically generated programs crashes. The transformation could trigger some faults that manifest through crash.
      * Compares measured output bits of 2 non-crashing programs. Due to the probabilistic nature of measuring, it compares the distribution  with Kolmogorov-Smirnov test (p-value < 5%)
 
-1. Warning management:
+* Warning management:
    * Semi-automatically clustering based on their crash message, abstracting the particulars of each message.
 
    * Randomly select few programs from each cluster and manually inspected.
