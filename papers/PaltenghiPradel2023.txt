@@ -12,7 +12,9 @@ Bullet points/ideas:
 *** Add quantum register (if coupling map not fixed)
 *** Parameter injections (new within quantum computing)
 *** Partitioned execution (if non-interacting subset of qubits)(non-semantic-preserving)
+
 ** Representation transformation, conversion via QSAM
+
 ** Execution transformation (adapting the environment)
 *** Change of coupling map (if no added register)
 *** Change of gate set
@@ -26,17 +28,21 @@ Bullet points/ideas:
 
 * QDiff as probably the only option before MorphQ on testing quantum platforms, Qdiff uses manually written programs and is based on differential testing
 
-* MorphQ steps:
+# MorphQ steps:
+
 ** Generating programs
 *** A random approach won't be ideal as it will highly likely generate invalid programs
 *** Creating programs  with template and grammar (Fig 4 and 5). Limiting to 30 gates due to complexity of operations (execution time).
+
 ** Applying metamorphic transformations
+
 ** Comparing behaviour in 2 levels:
 *** Crash difference, if the transform program crashes, as it has been seen that none of the automatically generated programs crashes. The transformation could trigger some faults that manifest through crash.
 *** Compares measured output bits of 2 non-crashing programs. Due to the probabilistic nature of measuring, it compares the distribution  with Kolmogorov-Smirnov test (p-value < 5%)
 
 * Warning management:
 ** Semi-automatically clustering based on their crash message, abstracting the particulars of each message.
+
 ** Randomly select few programs from each cluster and manually inspected.
 *** Manually reverse every transformation until the one responsible for the crash is found.
 
