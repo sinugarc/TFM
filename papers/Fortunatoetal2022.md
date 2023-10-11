@@ -43,24 +43,27 @@ Fortunato, D., Campos, J., & Abreu, R. (2022). Mutation testing of quantum progr
   * QMut based on function calls instead of constant or logical operators
   * Search for quantum gates
 
-* [Table III] & [Table IV] Mutant summary and scores
+* [Table III] & [Table IV] Mutant summary and scores. Big difference, as expected, between gate mutations and measurements.
 
 
 ### Outcome:
 * Novel set of mutation operators for quantum programs
 * Gate equivalence depending on number and type or arguments [Figure 1]
 * Empiricial evaluation of QMutPy effectiveness and efficiency
+* test suits may focus only in the quantum part of the programm, as seen per difference of mutation score between classical and quantum mutations and the killing type (error vs test assertion)
 
 ### Future work / Applications / Lacks:
 * Extend to different platforms
 * Too many requirements for the experiment?
 * Adapt/Create a new operation in Python AST for quantum gates (The idea is to reduce mutant creating runtime)
+* Only 11 QP out of 24 had QMut introduced by QMutPy
+* Better approaches to reduce number of design errors of QMI mutation
 
 ### Data:
 * MutPy: https://github.com/danielfobooss/mutpy
 * QMutPy: https://github.com/jose/qmutpy-experiments
 
-### Unfamiliar items:
+### Unknown concepts:
 * MutPy
 * unittest/pytest
 * Abstract syntax tree within Python
