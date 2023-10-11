@@ -4,7 +4,7 @@ Fortunato, D., Campos, J., & Abreu, R. (2022). Mutation testing of quantum progr
 * Creation of QMutPy, as an extension of MutPy
 * Case study on 24 real quantum programs from IBM's qiskit library
 * QP are much harder to develop, so it's easier to make mistakes in the counterintuitive quantum programming world
-* QP measurement are probabilistic and impossible to examine without disrupting execution
+* QP measurements are probabilistic and impossible to examine without disrupting execution
 * Bugs represent realistic mistakes that programmers often make.
 * Mutants included:
   * QGR, Quantum gate replacement
@@ -49,15 +49,18 @@ Fortunato, D., Campos, J., & Abreu, R. (2022). Mutation testing of quantum progr
 ### Outcome:
 * Novel set of mutation operators for quantum programs
 * Gate equivalence depending on number and type or arguments [Figure 1]
-* Empiricial evaluation of QMutPy effectiveness and efficiency
-* test suits may focus only in the quantum part of the programm, as seen per difference of mutation score between classical and quantum mutations and the killing type (error vs test assertion)
+* Empirical evaluation of QMutPy effectiveness and efficiency
+* Test suits may focus only in the quantum part of the program, as seen per difference of mutation score between classical and quantum mutations and the killing type (error vs test assertion)
+* Increase of test suites to improve coverage in only 2 QP to prove that LOC coverage was directly impacting mutation score
+* Asserting number of measurements to avoid false negatives. Directly affecting mutation score as we avoid false positives (shor's alg)
 
 ### Future work / Applications / Lacks:
-* Extend to different platforms
+* Extend to different platforms and increase of mutation operators (they are working on)
 * Too many requirements for the experiment?
 * Adapt/Create a new operation in Python AST for quantum gates (The idea is to reduce mutant creating runtime)
 * Only 11 QP out of 24 had QMut introduced by QMutPy
 * Better approaches to reduce number of design errors of QMI mutation
+* Automatic test generation for QP, as now manually produced test achieved a higher mutation score.
 
 ### Data:
 * MutPy: https://github.com/danielfobooss/mutpy
@@ -83,6 +86,10 @@ Fortunato, D., Campos, J., & Abreu, R. (2022). Mutation testing of quantum progr
 * [33] Bug patterns in Qiskit programs
 * [35] MutPy
 * [40]-[43] preliminary work in quantum mutation
+  * [40] Analysis in automatic generated test with 4 mutation operators
+  * [41] Muskit, mutation tool without equivalence gates implemented
+  * [42] QDiff
+  * [43] MTQC, Java quantum mutation tool for Qiskit and Q#
 * [46] Best practices for code coverage
 * [47] GNU parallel tool
 * [49] guidelines for threats to validity
