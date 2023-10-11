@@ -82,11 +82,11 @@ Fortunato, D., Campos, J., & Abreu, R. (2022). Mutation testing of quantum progr
 - [ ] [24] Effectiveness of mutation testing
 - [ ] [25] Previous study 
 - [x] [30] Previous article about mutation in QP {Introduction to this article}{No review needed}
-- [ ] [32] Described quantum mutation to assess the correct behaviour of QP
+- [ ] [32] Described quantum mutation to assess the correct behaviour of QP {Check with Luis, Introduction of Markov chain Monte Carlo quantum}
 - [ ] [33] Bug patterns in Qiskit programs
-- [x] [35] MutPy {Under review}{Idea: Clarify Unknown concepts and get a general idea of MutPy}
+- [x] [35] MutPy {Link to MutPy github}{No review needed}
 - [ ] [40]-[43] preliminary work in quantum mutation
-  - [ ] [40] Analysis in automatic generated test with 4 mutation operators
+  - [x] [40] Analysis in automatic generated test with 4 mutation operators
   - [ ] [41] Muskit, mutation tool without equivalence gates implemented
   - [x] [42] QDiff {Reviewed}
   - [ ] [43] MTQC, Java quantum mutation tool for Qiskit and Q#
