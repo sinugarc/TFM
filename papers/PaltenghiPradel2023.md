@@ -61,7 +61,7 @@ Paltenghi, M., & Pradel, M. (2023, May). MorphQ: Metamorphic testing of the qisk
 ### Data:
 https://github.com/sola-st/MorphQ-Quantum-Qiskit-Testing-ICSE-23
 
-### Unfamiliar items:
+### Unknown concepts:
 * Differential testing
 * Delta debugging
 
