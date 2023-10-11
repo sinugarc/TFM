@@ -58,7 +58,7 @@ Wang, J., Zhang, Q., Xu, G. H., & Kim, M. (2021, November). Qdiff: Differential 
 - [ ] [13]-[15] Possible backend bugs in QSS
 - [ ] [32] Mutation-based fuzz testing
 - [ ] [34][35] Quantum mutant generation
-  - [ ][35] input-output coverage
+  - [x][35] input-output coverage {Under review}
 - [ ] [47][48] Randomize compilation
 - [ ] [58] Quantum software life cycle- Challenges and opportunities
 - [ ] [59] Formally reasoning due to a representation of qubits and gates as matrix-valued boolean expressions
