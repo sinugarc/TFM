@@ -68,17 +68,17 @@ https://github.com/sola-st/MorphQ-Quantum-Qiskit-Testing-ICSE-23
 
 ### Articles ([Ref] and abstraction) :
 
-* [1] Quantum platforms(Qiskit) full of bugs, unrelated to classical bugs.
-* [2] Oracle problem in quantum
-* [3][4] metamorphic testing
-* [7] QDiff | Estimation of right number of shots {Under study}
-* [9][10][11] Studies of Qiskit platform
-* [12] Parametrization of quantum circuits
-* [16] Universal gates
-* [18][19] KS test
-* [20] Delta debugging for minimal sequence
-* Testing and manipulating quantum programs VII.Related work (b)
-  * Coverage-based methods [30]
+- [ ] [1] Quantum platforms(Qiskit) full of bugs, unrelated to classical bugs.
+- [ ] [2] Oracle problem in quantum
+- [ ] [3][4] metamorphic testing
+- [x] [7] QDiff | Estimation of right number of shots {Under review}
+- [ ] [9][10][11] Studies of Qiskit platform
+- [ ] [12] Parametrization of quantum circuits
+- [ ] [16] Universal gates
+- [ ] [18][19] KS test
+- [ ] [20] Delta debugging for minimal sequence
+- [ ] Testing and manipulating quantum programs VII.Related work (b)
+  - [ ] [30] Coverage-based methods 
 
 
 
