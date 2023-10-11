@@ -72,28 +72,28 @@ Fortunato, D., Campos, J., & Abreu, R. (2022). Mutation testing of quantum progr
 * Abstract syntax tree within Python
 
 ### Articles ([Ref] and abstraction) :
-* [4] Challenges in computer science
-* [5][6] Software quality through testing
-* [7]-[12] Classical testing approaches
-* [13]-[15] Quantum testing approaches
-* [16] Counterintuitive QW
-* [18] Correct implementation of QP is harder
-* [19]-[23] Mutation testing as improvement to testing practices
-* [24] Effectiveness of mutation testing
-* [25] Previous study
-* [30] Previous article about mutation in QP
-* [32] Described quantum mutation to assess the correct behaviour of QP
-* [33] Bug patterns in Qiskit programs
-* [35] MutPy
-* [40]-[43] preliminary work in quantum mutation
-  * [40] Analysis in automatic generated test with 4 mutation operators
-  * [41] Muskit, mutation tool without equivalence gates implemented
-  * [42] QDiff
-  * [43] MTQC, Java quantum mutation tool for Qiskit and Q#
-* [46] Best practices for code coverage
-* [47] GNU parallel tool
-* [49] guidelines for threats to validity
-* [50] Lack of real world QP
+- [ ] [4] Challenges in computer science
+- [ ] [5][6] Software quality through testing
+- [ ] [7]-[12] Classical testing approaches
+- [ ] [13]-[15] Quantum testing approaches
+- [ ] [16] Counterintuitive QW
+- [ ] [18] Correct implementation of QP is harder
+- [ ] [19]-[23] Mutation testing as improvement to testing practices
+- [ ] [24] Effectiveness of mutation testing
+- [ ] [25] Previous study 
+- [x] [30] Previous article about mutation in QP {Introduction to this article}{No review needed}
+- [ ] [32] Described quantum mutation to assess the correct behaviour of QP
+- [ ] [33] Bug patterns in Qiskit programs
+- [ ] [35] MutPy
+- [ ] [40]-[43] preliminary work in quantum mutation
+  - [ ] [40] Analysis in automatic generated test with 4 mutation operators
+  - [ ] [41] Muskit, mutation tool without equivalence gates implemented
+  - [x] [42] QDiff {Under review}
+  - [ ] [43] MTQC, Java quantum mutation tool for Qiskit and Q#
+- [ ] [46] Best practices for code coverage
+- [ ] [47] GNU parallel tool
+- [ ] [49] guidelines for threats to validity
+- [ ] [50] Lack of real world QP
 
 
 
