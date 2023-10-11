@@ -71,7 +71,7 @@ https://github.com/sola-st/MorphQ-Quantum-Qiskit-Testing-ICSE-23
 - [ ] [1] Quantum platforms(Qiskit) full of bugs, unrelated to classical bugs.
 - [ ] [2] Oracle problem in quantum
 - [ ] [3][4] metamorphic testing
-- [x] [7] QDiff | Estimation of right number of shots {Under review}
+- [x] [7] QDiff | Estimation of right number of shots {Reviewed}
 - [ ] [9][10][11] Studies of Qiskit platform
 - [ ] [12] Parametrization of quantum circuits
 - [ ] [16] Universal gates
