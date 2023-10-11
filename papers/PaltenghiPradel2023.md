@@ -66,7 +66,7 @@ https://github.com/sola-st/MorphQ-Quantum-Qiskit-Testing-ICSE-23
 * Delta debugging
 
 
-### Articles ([Ref] and abstraction) :
+### Papers ([Ref] and abstraction) :
 
 - [ ] [1] Quantum platforms(Qiskit) full of bugs, unrelated to classical bugs.
 - [ ] [2] Oracle problem in quantum

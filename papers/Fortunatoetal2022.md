@@ -71,7 +71,7 @@ Fortunato, D., Campos, J., & Abreu, R. (2022). Mutation testing of quantum progr
 * unittest/pytest
 * Abstract syntax tree within Python
 
-### Articles ([Ref] and abstraction) :
+### Papers ([Ref] and abstraction) :
 - [ ] [4] Challenges in computer science
 - [ ] [5][6] Software quality through testing
 - [ ] [7]-[12] Classical testing approaches
