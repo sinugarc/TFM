@@ -79,3 +79,8 @@ https://simula- complex.github.io/Quantum- Software- Engineering/ICST21. html
 ### Obs
 
 * This paper was a reference by 2 or more studied papers. It does need a citation evaluation.
+  - [ ] Muqeet, A., Yue, T., Ali, S., & Arcaini, P. (2023). Noise-Aware Quantum Software Testing. arXiv preprint arXiv:2306.16992.
+
+  - [ ] Sato, N., & Katsube, R. (2023). Locating Buggy Segments in Quantum Program Debugging. arXiv preprint arXiv:2309.04266.
+
+  - [ ] Chen, Q., Câmara, R., Campos, J., Souto, A., & Ahmed, I. (2023, May). The smelly eight: An empirical study on the prevalence of code smells in quantum computing. In 2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE) (pp. 358-370). IEEE.
