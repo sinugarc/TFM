@@ -72,7 +72,7 @@ https://github.com/sola-st/MorphQ-Quantum-Qiskit-Testing-ICSE-23
 - [ ] [2] Oracle problem in quantum
 - [ ] [3][4] metamorphic testing
 - [x] [7] QDiff | Estimation of right number of shots {Reviewed}
-- [ ] [9][10][11] Studies of Qiskit platform
+- [ ] [9][10][11] Studies of Qiskit platform ([9] Indicated by Luis)
 - [ ] [12] Parametrization of quantum circuits
 - [ ] [16] Universal gates
 - [ ] [18][19] KS test
