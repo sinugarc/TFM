@@ -55,7 +55,7 @@ The authors idea is to be able to perform testing in the three most widely used 
 \newpage
 \subsubsection{MorhpQ}
 \label{Ch2.3.1:MorphQ}
-Matteo Paltenghi and Michael Pradel presented in May 2023 their latest work on testing QQS, introducing metamorphic testing as a novel approach for quantum platforms. Their innovative method involves the design of metamorphic rules for Qiskit. Their article, titled: \textit{"MorphQ: Metamorphic testing of the qiskit quantum computing platform"} \cite{paltenghi2023morphq}, further develops this concept, presenting a fresh perspective on generating quantum programs using a defined grammar. This advancement brings us closer to the idea of automating the testing process, eliminating the need for a library of quantum programs as generation seed, which was the traditional approach up to this point.\newline
+Matteo Paltenghi and Michael Pradel presented in May 2023 their latest work on testing QQS, introducing metamorphic testing as a novel approach for quantum platforms. Their innovative method involves the design of metamorphic rules for Qiskit.3 Their article, titled: \textit{"MorphQ: Metamorphic testing of the qiskit quantum computing platform"} \cite{paltenghi2023morphq}, further develops this concept, presenting a fresh perspective on generating quantum programs using a defined grammar. This advancement brings us closer to the idea of automating the testing process, eliminating the need for a library of quantum programs as generation seed, which was the traditional approach up to this point.\newline
 
 MorphQ will focus on Qiskit, as quantum platform, employing metamorphic testing to address specific challenges presented in quantum computing. The oracle problem will be avoided as it will be resolved by the use of MR, eliminating the need for a detailed specification of expected input behaviour. Let us provide a general overview of MorphQ as presented by the authors, then we will focus on the key innovations within each of its distinct components .
 
@@ -139,7 +139,7 @@ After considering some of the latest results regarding testing of quantum platfo
 \label{Ch2.3.2:QMutPy}
 The initial approach we are presenting was authored by Fortunato, D. et all in 2022 in their article titled "\textit{Mutation testing of quantum programs: A case study with qiskit}"\cite{fortunato2022mutation}. In this work, they explore mutation testing on QP with the extension of the MutPy library by introducing new quantum mutation operators. This article can be divided into two distinct sections. The first section focuses on the introduction of QMutPy and the initial experiments. The second section delves deeper into the previous results to identify potential causes and solutions. The authors implement some of these solutions to determine if they are on the right path. \newline
 
-First, let us understand what QP are going to be tested and why did the authors choose this library. The oracle problem was one of the challenges discussed earlier, where given an input, we need the expected behaviour. In this article, the authors have decided to prioritise and initially focus on this new approach for QP testing. To accomplish this, they opted to use Qiskit-Aqua's repository, which has since been moved to Qiskit-Terra \footnote{\url{https://github.com/Qiskit/qiskit-aqua/\#migration-guide}}.This repository provides the implementation of 24 QP along with their respective test suites. \newline
+First, let us understand what QP are going to be tested and why did the authors choose this library. The oracle problem was one of the challenges discussed earlier, where given an input, we need the expected behaviour. In this article, the authors have decided to prioritise and initially focus on this new approach for QP testing. To accomplish this, they opted to use Qiskit-Aqua's repository, which has since been moved to Qiskit-Terra \footnote{\url{https://github.com/Qiskit/qiskit-aqua/\#migration-guide}}.This repository provides the implementation of 24 QP along with their respective test suites. In these repository, you can discover a variety of programs, including pure classical, hybrid, and pure quantum programs.\newline
 
 Similarly, they carefully selected the tool they believed would be the most suitable for implementing their ideas about quantum mutation testing. Their criteria included support for Python programs, testing frameworks, mutation operators, and the capability to generate appropriate reports. For that reason, they choose MutPy, as it fulfils their specific needs. Now, let us see how they develop these new quantum mutation operators, expanding the library mentioned earlier and naming it QMutPy.\newline
 
@@ -152,7 +152,22 @@ They have introduced in QMutPy 5 quantum mutation operators, QMO:
     \item Quantum measurement deletion, QMD.
 \end{itemize}
 
-These new operators are designed to capture the main errors that can occur during the implementation of an algorithm. The key concept around QMO is gate equivalence. We will consider two gates to be syntactically equivalent if and only if the number and type of the arguments are identical. The authors have identified 40 gates with at least one syntactical equivalent gate. As an example, gate h would have the following equivalent gates: x, y, z, i, id, s, sdg, sx, t and tdg. 
+\vspace{5pt}
+These new operators are designed to capture the main errors that can occur during the implementation of an algorithm. The key concept around QMO is gate equivalence. We will consider two gates to be syntactically equivalent if and only if the number and type of the arguments are identical. The authors have identified 40 gates with at least one syntactical equivalent gate. As an example, gate h would have the following equivalent gates: x, y, z, i, id, s, sdg, sx, t and tdg. In their article \cite{fortunato2022mutation}, the authors illustrated all equivalence gates in Figure 1.  \newline
+
+There is no need to provide an explanation for the mutant operators, as they are inherently self-explanatory.  However, let us dig into a more comprehensive understanding of gate operators. As mentioned earlier, the fundamental concept that makes these operators effective is gate equivalence. Whenever we encounter a gate addition (denoted by ".append()"), and we intend to employ QRG or QRI, we will either replace the existing gate with a syntactically equivalent one or simply add a new gate that preserves the syntax of our program. The process will generate as many mutants as there are syntactically equivalent gates. All of these modifications are implemented using Python's Abstract Syntax Tree (AST).\newline
+
+QMutPy workflow, analogous to MutPy:
+\begin{itemize}
+    \item Loads QP source code and test suite.
+    \item Executes test suite on the unmutated QP.
+    \item Applies mutant operators, including QMO.
+    \item Executes test suite on all mutated QP and provides a summary of results.
+\end{itemize}
+
+Because the works in quantum mutation \cite{wang2021qdiff}\cite{mendiluze2021muskit}\cite{ali2021assessing} were in a preliminary state, the authors opted to compare MutPy and QMutPy by running experiments on the same set of quantum programs and test suites. The experiment's metrics will be assessed through two distinct approximations of the mutation score. The first one follows the classical interpretation\cite{jia2010analysis}, while the second allows for the potential achievement of 100\% mutantion score. This will be achieved by excluding from the total mutants generated those that haven't been executed.\newline
+
+NEED understanding on last step of MutPy/QMutPy
 
 \subsubsection{Quito}
 \label{Ch2.3.2:Quito}
