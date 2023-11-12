@@ -208,7 +208,26 @@ QMutPy workflow, analogous to MutPy:
 
 Because the works in quantum mutation \cite{wang2021qdiff}\cite{mendiluze2021muskit}\cite{ali2021assessing} were in a preliminary state, the authors opted to compare MutPy and QMutPy by running experiments on the same set of quantum programs and test suites. The experiment's metrics will be assessed through two distinct approximations of the mutation score. The first one follows the classical interpretation\cite{jia2010analysis}, while the second allows for the potential achievement of 100\% mutantion score. This will be achieved by excluding from the total mutants generated those that haven't been executed.\newline
 
-NEED understanding on last step of MutPy/QMutPy
+The authors will perform when needed Kruskal-Wallist non-parametric test with $p=0.01$ and Cohen's $d$ effect-size measure on the results reported by QMutPy to evaluate the statistical significance.\newline
+
+Let us conclude by highlighting the key contributions and outcomes of these experiments:
+
+\begin{itemize}
+    \item Expansion of the set of mutation operators for quantum programs, implemented in QMutPy.
+    \item Introduction of gate equivalence definition based on the number and type of arguments.
+    \item QMutPy generates quantum mutants for 11 out of 24 QPs. The remaining 13 QPs should exclude quantum gates and measurements. On average, 4 lines of code (LOCs) are mutated, resulting in 13 mutants and 64 mutants per QP. MutPy, on the other hand, generates mutants for all programs with an average of 64 LOCs mutated, 3 mutants, and 147 mutants per QP.
+    \item QMutPy's performance in mutant creation is not statistically significantly lower than MutPy when considering the potential number of classical vs quantum mutations per QP.
+    \item Test suits may only focus in the quantum part of the program, as evidenced by the difference in mutation scores between classical and quantum mutations and the type of killing (error vs test assertion).
+    \item QMutPy exhibits reduced efficiency in creating quantum mutants. One proposed solution involves defining new operations in Python AST for quantum gates to enhance creation time.
+\end{itemize}
+
+As mentioned earlier, the authors delved into potential enhancements for these results, particularly focusing on test suites. They concentrated on two criteria for improvement: coverage and test assertions. By selecting specific programs for each test, they identified why mutants survived and implemented new assertions or tests as necessary. Therefore, the augmentation of test suites and assertions resulted in an increased mutation score for the studied programs.
+
+\begin{itemize}
+    \item The mutation score for $hhl$’s rose from $50\%$ to $100\%$ (with coverage increasing from $86.55\%$ to $89.16\%$), and for $vqc$’s, it increased from $0\%$ to $50\%$ (coverage rising from $93.26\%$ to $94.43\%$).
+    \item In the case of Shor's algorithm, the original test suite achieved a $53.34\%$ mutation score, whereas the augmented test suite reached $72.81\%$.
+\end{itemize}
+
 
 \subsubsection{Quito}
 \label{Ch2.3.2:Quito}
