@@ -76,7 +76,12 @@ The authors idea is to be able to perform testing in the three most widely used 
     
 \end{itemize}
 
-\subsection{MorhpQ; 14-20 May 2023}
+\vspace{15pt}
+\subsection{QSS review; May 2022}
+Cross-Platform Testing of Quantum Computing Platforms \cite{paltenghi2022cross}
+Could be the state before they created MorphQ
+
+\subsection{MorphQ; 14-20 May 2023}
 \label{Ch3.1.2:MorphQ}
 Matteo Paltenghi and Michael Pradel presented in May 2023 their latest work on testing QQS, introducing metamorphic testing as a novel approach for quantum platforms. Their innovative method involves the design of metamorphic rules for Qiskit.3 Their article, titled: \textit{"MorphQ: Metamorphic testing of the qiskit quantum computing platform"} \cite{paltenghi2023morphq}, further develops this concept, presenting a fresh perspective on generating quantum programs using a defined grammar. This advancement brings us closer to the idea of automating the testing process, eliminating the need for a library of quantum programs as generation seed, which was the traditional approach up to this point.\newline
 
@@ -159,9 +164,21 @@ Let us summarise the key results and contributions of MorphQ, keeping in mind th
 After considering some of the latest results regarding testing of quantum platforms and the diverse challenges they have encountered and overcame, we will shift our focus towards testing our QP implementations. This presents a different challenge where we have an algorithm or specification and an implementation that should represent that algorithm. We will explore the recent developments and analyse different techniques used for testing an implementation (QP) of a given algorithm.
 
 \subsection{Challenges; 25-31 May 2019}
-On Testing Quantum Programs \cite{miranskyy2019testing}
+On Testing Quantum Programs \cite{miranskyy2019testing}.
 
-\vspace{10pt}
+\vspace{15pt}
+\subsection{Assertions; 22 June 2019}
+Statistical assertions for validating patterns and finding bugs in quantum programs \cite{huang2019statistical}.
+
+\vspace{15pt}
+\subsection{Runtime Assertions; 01 July-Dec 2019}
+Quantum Circuits for Dynamic Runtime Assertions in Quantum Computation \cite{zhou2019quantum}. 2020 version \cite{liu2020quantum}.
+
+\vspace{15pt}
+\subsection{Model-Based testing for QP; 2020}
+Quantum Software Testing \cite{usaola2020quantum}
+
+\vspace{15pt}
 \subsection{QSharpCheck; 25 September 2020}
 \label{Ch3.2.1:QSharpCheck}
 The initial approach we will discuss was presented by S. Honarvar et al. in 2020 with the title: "\textit{Property-based Testing of Quantum Programs in $Q\#$}" \cite{honarvar2020property}. The authors position this approach as the first step towards structured testing techniques for quantum programs, offering a property-based framework tailored for $Q\#$. Their work was influenced by Quantum Hoare Logic \cite{ying2012floyd} and assertion language \cite{huang2019statistical}. The authors introduce a syntax for specifying properties of $Q\#$ programs along with a tool named QSharpCheck, designed for test case generation, text execution, and analysis of outcomes.\newline
@@ -234,6 +251,16 @@ To asses the capabilities of this framework, the authors introduce mutation test
 The authors conclude the article by summarising the completed work, emphasising that this marks the initial phase in property-based testing of QPs. The primary contribution of the article lies in the integration of a property language based on pre- and post-condition type properties and QSharpCheck.
 
 \vspace{15pt}
+\subsection{Proq; 13 November 2020}
+
+Projection-based runtime assertions for testing and debugging Quantum programs \cite{li2020projection}
+
+\vspace{15pt}
+\subsection{QCEC; February 2021}
+
+QCEC: A JKQ tool for quantum circuit equivalence checking 
+
+\vspace{15pt}
 \subsection{QuanFuzz; 12-16 April 2021}
 
 Check! First article on 16 Oct 2018 \cite{wang2018quanfuzz}
@@ -243,6 +270,9 @@ Poster: Fuzz Testing of Quantum Program
 \vspace{15pt}
 \subsection{Quito; 12-16 April 2021}
 \label{Ch3.2.2:Quito}
+
+Check 2nd version \cite{wang2021quito}
+
  The subsequent approach, presented by S. Ali et all in 2021 under the title: "\textit{Assessing the effectiveness of input and output coverage criteria for testing quantum programs}"\cite{ali2021assessing}, introduces the Quito approach (QUantum InpuT Output coverage). The authors define three coverage criteria on the inputs and outputs of QPs along with their test generation strategies.\newline
 
 In their paper, the authors formally establish definitions for QP, input, output, program specification, valid output values, and test input, output, and suite. As well, the definition of input, output and input-output criteria follows the usual such that every input/output/<input,output>, respectively,  is covered by a test suite. Let's delve in their definition for outcome of a test suite:
@@ -307,6 +337,14 @@ To conclude this approach, let's consider some potential future work that is eit
 
 Generating Failing Test Suites for Quantum Programs With Search \cite{wang2021generating}
 
+2022 version \cite{wang2022qusbt}
+
+\vspace{15pt}
+\subsection{Testing QSharp with Microsoft development kit; October 19, 2021}
+
+Testing Quantum Programs using Q$\#$ and Microsoft Quantum
+Development Kit \cite{mykhailova2021testing}
+
 \vspace{15pt}
 \subsection{Muskit; 15-19 November 2021}
 \label{Ch3.2.3:Muskit}
@@ -353,6 +391,27 @@ The authors conducted experiments using four different QPs to evaluate Muskit, y
 . Until now, all mutations had been performed manually. The paper identifies a limitation that Muskit currently faces, it is unable to detect equivalent mutants. The authors express concerns about the possibility that these quantum mutation operators may be related to each other in terms of the killability of their mutants. This leaves room for exploration in theoretical and experimental future works, presenting an area that could be further investigated.
 
 \vspace{15pt}
+\subsection{QuCat; 06-10 December 2021}
+
+Application of Combinatorial Testing to Quantum Programs \cite{wang2021application}
+
+\vspace{15pt}
+\subsection{Sequence to Sequence model for QSharp ; 04-13 April 2022}
+
+A Preliminary Study on Generating Well-Formed
+$Q\#$ Quantum Programs for Fuzz Testing 
+
+\vspace{15pt}
+\subsection{QPs testing with MR; May 2022}
+
+Metamorphic testing of oracle quantum programs \cite{abreu2022metamorphic}
+
+\vspace{15pt}
+\subsection{Multi-lingual property based approach; May 2022}
+
+A multi-lingual benchmark for property-based testing of quantum programs \cite{pontolillo2022multi}
+
+\vspace{15pt}
 \subsection{MutTG; 08 July 2022}
 
 Mutation-Based Test Generation for Quantum Programs with Multi-Objective Search \cite{wang2022mutation}
@@ -361,7 +420,8 @@ Mutation-Based Test Generation for Quantum Programs with Multi-Objective Search 
 \subsection{QMutPy; 29 July 2022}
 \label{Ch3.2.4:QMutPy}
 
-Check add ons on 15-19 November 2021
+Check add ons on 15-19 November 2021 \cite{fortunato2022qmutpy}
+
 The initial approach we are presenting was authored by Fortunato, D. et all in 2022 in their article titled "\textit{Mutation testing of quantum programs: A case study with qiskit}"\cite{fortunato2022mutation}. In this work, they explore mutation testing on QP with the extension of the MutPy library by introducing new quantum mutation operators. This article can be divided into two distinct sections. The first section focuses on the introduction of QMutPy and the initial experiments. The second section delves deeper into the previous results to identify potential causes and solutions. The authors implement some of these solutions to determine if they are on the right path. \newline
 
 First, let us understand what QP are going to be tested and why did the authors choose this library. The oracle problem was one of the challenges discussed earlier, where given an input, we need the expected behaviour. In this article, the authors have decided to prioritise and initially focus on this new approach for QP testing. To accomplish this, they opted to use Qiskit-Aqua's repository, which has since been moved to Qiskit-Terra \footnote{\url{https://github.com/Qiskit/qiskit-aqua/\#migration-guide}}.This repository provides the implementation of 24 QP along with their respective test suites. In these repository, you can discover a variety of programs, including pure classical, hybrid, and pure quantum programs.\newline
@@ -416,6 +476,36 @@ As mentioned earlier, the authors delved into potential enhancements for these r
 \subsection{QSharpTester;19 Aug 2022}
 
 Testing Quantum Programs with Multiple Subroutines \cite{long2022testing}
+
+\vspace{15pt}
+\subsection{QuMu; 13 October 2022}
+
+Quantum Software Testing: Current Trends and Emerging Proposals \cite{de2022quantum}
+
+\vspace{15pt}
+\subsection{Shor's correctness with MR; 09 November 2022}
+
+Asserting the correctness of Shor implementations using metamorphic testing \cite{costa2022asserting}.
+
+\vspace{15pt}
+\subsection{Automatic test case generation; 09 November 2022}
+
+Automatic generation of test circuits for the verification of Quantum deterministic algorithms \cite{garcia2022automatic}
+
+2023 version \cite{garcia4421955automatic}
+
+\vspace{15pt}
+\subsection{Coverage Criteria for Quantum Software Testing; 01 March 2023}
+
+Formalization of Structural Test Cases Coverage Criteria for Quantum Software Testing \cite{kumar2023formalization}
+
+\vspace{15pt}
+\subsection{QP testing subroutines; 30 Jun 2023}
+
+Testing multi-subroutine quantum programs: From unit testing to integration testing \cite{long2023testing}
+
+\subsection{QP black-box testing; 4 Jul 2023}
+Equivalence, Identity, and Unitarity Checking in Black-Box Testing of Quantum Programs \cite{long2023equivalence}
 
 \section{Future work}
 \label{Ch3.3:FutureWork}
