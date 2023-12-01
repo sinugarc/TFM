@@ -77,6 +77,11 @@ The authors idea is to be able to perform testing in the three most widely used 
 \end{itemize}
 
 \vspace{15pt}
+\subsection{Multi-lingual property based approach; May 2022}
+
+A multi-lingual benchmark for property-based testing of quantum programs \cite{pontolillo2022multi}
+
+\vspace{15pt}
 \subsection{QSS review; May 2022}
 Matteo Paltenghi presented his paper titled \textit{"Cross-Platform Testing of Quantum Computing Platforms"} in 2022, as documented in \cite{paltenghi2022cross}. The primary objective of this paper is to delineate the challenges faced by quantum computing platform testing in 2022, offering hypotheses on potential solutions. We could consider this paper as the seed for Paltenghi's subsequent research with MorphQ, the finding of which will be presented upon shortly. Let us explore the challenges and hypotheses outlined by the author.
 
@@ -439,14 +444,11 @@ A Tool For Debugging Quantum Circuits \cite{metwalli2022tool}
 Metamorphic testing of oracle quantum programs \cite{abreu2022metamorphic}
 
 \vspace{15pt}
-\subsection{Multi-lingual property based approach; May 2022}
-
-A multi-lingual benchmark for property-based testing of quantum programs \cite{pontolillo2022multi}
-
-\vspace{15pt}
 \subsection{MutTG; 08 July 2022}
 
-Mutation-Based Test Generation for Quantum Programs with Multi-Objective Search \cite{wang2022mutation}
+Wang et al. presented the article with title: \textit{"Mutation-Based Test Generation for Quantum Programs with Multi-Objective Search"}\cite{wang2022mutation} The authors adopted the same theoretical framework as they applied on \cite{ali2021assessing} and \cite{wang2021quito}, those papers were presented previously on ****. Defining two new concepts of possible output failures directly connected to the names of the appropriate oracles.\newline
+
+The authors propose a search-based approach, called MutTG, that tries to generate the minimal test suite killing all the mutants.
 
 \vspace{15pt}
 \subsection{QMutPy; 29 July 2022}
@@ -505,22 +507,52 @@ As mentioned earlier, the authors delved into potential enhancements for these r
 \end{itemize}
 
 \vspace{15pt}
-\subsection{QSharpTester;19 Aug 2022}
+\subsection{QuMu; 13 October 2022*}
 
-Testing Quantum Programs with Multiple Subroutines \cite{long2022testing}
+García de la Barrera et al. present \textit{"Quantum Software Testing: Current Trends and Emerging Proposals"} \cite{de2022quantum} in 2022 as one of the chapters in the book \textit{Quantum Software Engineering} \cite{serrano2022quantum}. This chapter introduces a quick overview of the State of Art of testing in Quantum Computing. We will focus in the \textit{Quantum Mutation Support Tool, QuMu} prototype presented by the authors within this chapter.\newline
+
+They use Quirk\footnote{\url{https://algassert.com/quirk}}, which is a quantum circuit simulator. Each circuit is represented by an ordered set of columns and on each column an ordered set of gates. This structure will be used to save the position which allow a mutation. They defined an abstract operation, \textit{isApplicableTo}, for this matter. Which allows identifies which gates can be passed as parameters, and therefore creates a mapping of gates which could be mutated.\newline
+
+The authors define several mutation operators, grouped in different categories, fully develop in Table 9.1 in \cite{de2022quantum}:
+
+\begin{itemize}
+    \item Initialisation: Change initial value, first gate duplication and further gate duplication.
+    \item Wrong gate.
+    \item Missing gate: One-qubit gate removal, multi-qubit gate removal and control gate removal.
+    \item Bridging faults: Swap controls and controlled qubits.
+    \item Entanglement faults: Wrong entanglement initialisation, entanglement corruption, force unentanglement and force entanglement.
+\end{itemize}
+
+The process is split between two engines:
+\begin{itemize}
+    \item Mutant generation: Iterates over selected mutation operators using the map explained previously.
+    \item Mutant execution: Uploads the mutated circuit onto the Quirk website, executes a simulation, downloads and saves the results in the database.
+\end{itemize}
+
+They use distribution matrixes to compare results to identify killed, alive and injured mutants. This last ones identifies as the one who produce the same distribution matrix but leave the qubits with a different phase, we can observe this in Figure \ref{Fig:QuMUInjured}. This prototype includes a mutants results analyser.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{TFM/photos/QuMuInjured.png}
+        \caption{Injured mutant \cite{de2022quantum}} 
+        \label{Fig:QuMUInjured}
+\end{figure}
 
 \vspace{15pt}
-\subsection{QuMu; 13 October 2022}
+\subsection{Shor's correctness with MR; 09 November 2022*}
 
-Quantum Software Testing: Current Trends and Emerging Proposals \cite{de2022quantum}
+Nuno Costa et al. presented in 2022 the paper with title: \textit{"Asserting the correctness of Shor implementations using metamorphic testing"} \cite{costa2022asserting}. Where they used metamorphic testing to try and prove the correctness of the well known Shor's algorithm.\newline
+
+Firstly the authors delve into Shor's algorithm, this is needed due to metamorphic testing  characteristics, where to defined adequate metamorphic rules, MR, is important to understand the algorithm we facing. Let us see their proposal for MR:
+\begin{itemize}
+    \item In the domain of \textit{number factoring} where $p$ is a given prime number, $q_{1}$ is a given number, and $f(x)$ represents the set of factors of $x$, the following MR, named Add Prime, should hold: if $q_{2}$ is equal to $q_{1}\times p$ then $f(q_{2}) \backslash f (q_{1}) \subseteq {p}$.
+    \item In the domain of number factoring where $q_{1}$ and $q_{2}$ are given numbers and $f(x)$ represents the set of factors of $x$, the following MR, named Multiply Factors, should hold: if $q_{3}$ is equal to $q_{1}\times q_{2}$ then $f(q_{3})=f(q_{1})\cup f(q_{2})$.
+\end{itemize}
+
+The authors then proceed to implement MR \textit{Add Prime}, and do some experimental studies using mutants. They remark that with the current number of qubits in real quantum systems, they are not able to reproduce the experiments there for Shor's algorithm due to the high qubit required. Due to Shor's nature as non-deterministic algorithm, the results could still fail the test, even with a correct implementation. For this reason the authors include a threshold of 20 iterations, taking as pass if one of them fulfils the MR. they conclude that due to this challenges further research is needed in this approach, although with the appropriate threshold, they can observe how the MR detect implementation failures. 
 
 \vspace{15pt}
-\subsection{Shor's correctness with MR; 09 November 2022}
-
-Asserting the correctness of Shor implementations using metamorphic testing \cite{costa2022asserting}.
-
-\vspace{15pt}
-\subsection{Automatic test circuit generation; 09 November 2022}
+\subsection{Automatic test circuit generation; 09 November 2022*}
 
 Garcia et al. presented a preliminary work at the end of 2022 tittle: \textit{"Automatic generation of test circuits for the verification of Quantum deterministic algorithms"} \cite{garcia2022automatic}. The authors want to introduce test cases to be run within the machine. The idea is to embed the quantum circuit under test, CuT, in a QP that checks if the expected output is the same than the computed output, producing a verdict for the test case and not the outputs.\newline
 
@@ -538,7 +570,7 @@ In my opinion, one of the points to highlight from this approach is the increase
 There is a new version of this paper where the authors delve into this approach and have new study cases, the title is: \textit{"Automatic generation of test circuits for deterministic quantum algorithms"} \cite{garcia4421955automatic} which is still on pre print state.
 
 \vspace{15pt}
-\subsection{Coverage Criteria for Quantum Software Testing; 01 March 2023}
+\subsection{Coverage Criteria for Quantum Software Testing; 01 March 2023*}
 
 Ajay Kumar presented the paper titled: \textit{"Formalisation of Structural Test Cases Coverage Criteria for Quantum Software Testing"} \cite{kumar2023formalization} where he wanted to introduce the concept of cyclomatic complexity in quantum to give an understanding of the quantum testing complexity, the original concept was introduced by McCabe in 1976\cite{mccabe1976complexity}. The author define as \textbf{cyclomatic complexity} for quantum, the number of independent paths and paths generated due to the superposition of each control qubit. We will see how this concept will lead us to a structural coverage criteria to test QPs.\newline
 
@@ -584,9 +616,9 @@ Let us see the possible paths in Figure \ref{Fig:KumarToffoli} :
 The authors then present some coverage criteria for 1, 2 or more qubits, taking into accounts what gates are in use and with 2 assumptions: all gates are reachable and QP optimised, i.e. not two consecutive H gates. Concluding that this criteria should be explored as they have just been introduced towards cyclomatic complexity and the criteria only covers quantum control.
 
 \vspace{15pt}
-\subsection{Testing Multi-Subroutine Quantum Programs; 4 Jul 2023}
+\subsection{Testing Multi-Subroutine Quantum Programs; 4 Jul 2023*}
 
-Peixun Long and Jianjun Zhao unveiled their paper, titled \textit{"Testing Multi-Subroutine Quantum Programs: From Unit Testing to Integration Testing"} \cite{long2023equivalence}, in July 2023, building upon their earlier work presented in \cite{long2023testing}. Their objective is to introduce novel testing techniques tailored to the unique challenges and characteristics associated with multi-subroutine quantum programs.\newline
+Peixun Long and Jianjun Zhao unveiled their paper, titled \textit{"Testing Multi-Subroutine Quantum Programs: From Unit Testing to Integration Testing"} \cite{long2023testing}, in July 2023, building upon their earlier work presented in \cite{long2022testing}. Their objective is to introduce novel testing techniques tailored to the unique challenges and characteristics associated with multi-subroutine quantum programs.\newline
 
 Until now, the majority of research efforts have predominantly concentrated on testing small or fixed-scale quantum programs, without the complexities inherent in practical quantum programs featuring multiple subroutines and a blend of classical-quantum inputs and outputs. The authors aim to bridge this gap in the existing literature, delving deeper into the intricacies posed by such multifaceted quantum programs.\newline
 
@@ -619,6 +651,11 @@ To answer these questions, they propose Q-UML diagrams to define unit testing an
         \caption{IO types \cite{long2023equivalence}} 
         \label{Fig:IOTypes}
 \end{figure}
+
+\vspace{15pt}
+\subsection{Black-Box testing of QP; PrePrint}
+
+Equivalence, Identity, and Unitarity Checking in Black-Box Testing of Quantum Programs \cite{long2023equivalence}
 
 \vspace{15pt}
 \subsection{Tool for equivalent mutants; PrePrint}
