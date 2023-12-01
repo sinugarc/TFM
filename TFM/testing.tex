@@ -78,8 +78,25 @@ The authors idea is to be able to perform testing in the three most widely used 
 
 \vspace{15pt}
 \subsection{QSS review; May 2022}
-Cross-Platform Testing of Quantum Computing Platforms \cite{paltenghi2022cross}
-Could be the state before they created MorphQ
+Matteo Paltenghi presented his paper titled \textit{"Cross-Platform Testing of Quantum Computing Platforms"} in 2022, as documented in \cite{paltenghi2022cross}. The primary objective of this paper is to delineate the challenges faced by quantum computing platform testing in 2022, offering hypotheses on potential solutions. We could consider this paper as the seed for Paltenghi's subsequent research with MorphQ, the finding of which will be presented upon shortly. Let us explore the challenges and hypotheses outlined by the author.
+
+\vspace{-10pt}
+\begin{itemize}
+    \item[] \textbf{Challenge} 1: Quantum program generation. Platform testing requires a large amount of programs. However, there is only a few real quantum program examples available nowadays \cite{campos2021qbugs}.
+    \item[] \textbf{Challenge} 2: Multi-platform Program Translator. Quantum programs are often written in new programming languages or expressed using APIs on top of existing languages. The absence of standardized intermediate representations presents a challenge for cross-platform testing. Attempts have been made with \textit{OpenQASM} \cite{cross2017open}\cite{cross2022openqasm}.
+    \item[] \textbf{Challenge} 3: Multivariate Binary Distribution Comparison. The probabilistic nature of quantum measurements introduces complexity to testing, as outputs are represented by distributions. Research has been conducted on this challenge in quantum debugging \cite{huang2018qdb}\cite{huang2019statistical}\cite{li2020projection} , along with preliminary work using Kolmogorov-Smirnov or cross-entropy tests \cite{wang2021qdiff}.
+\end{itemize}
+
+\vspace{-10pt}
+\begin{itemize}
+    \item[] \textbf{Hypothesis} 1: Cross-platform testing can be a promising direction to find bugs in QC platforms. The authors suggest the existence of bugs in traditional buggy components, such as compilers and optimizers, building on the work presented by Wang et al. \cite{wang2021qdiff}.
+    \item[] \textbf{Hypothesis} 2: Testing with automatically generated realistic quantum programs could boost the effectiveness of current differential testing on QC platforms.
+    \item[] \textbf{Hypothesis} 3: Machine learning methods could be successful in generating realistic quantum programs. This hypothesis comes from classical computing and how genetic algorithms have been used for program synthesis \cite{koza1994genetic} and reinforcement learning to generate equivalent quantum programs \cite{moro2021quantum}.
+    \item[] \textbf{Hypothesis} 4: The quantum programs can be translated to run on multiple platforms.
+    \item[] \textbf{Hypothesis} 5: A statistical test specific for multivariate binary distribution should perform better than existing unspecialised methods.
+\end{itemize}
+
+After outlining these brief ideas about the challenges and potential solutions in quantum platform testing, let's proceed to introduce the subsequent work by the same author.
 
 \subsection{MorphQ; 14-20 May 2023}
 \label{Ch3.1.2:MorphQ}
@@ -164,11 +181,13 @@ Let us summarise the key results and contributions of MorphQ, keeping in mind th
 After considering some of the latest results regarding testing of quantum platforms and the diverse challenges they have encountered and overcame, we will shift our focus towards testing our QP implementations. This presents a different challenge where we have an algorithm or specification and an implementation that should represent that algorithm. We will explore the recent developments and analyse different techniques used for testing an implementation (QP) of a given algorithm.
 
 \subsection{Challenges; 25-31 May 2019}
-On Testing Quantum Programs \cite{miranskyy2019testing}.
+On Testing Quantum Programs \cite{miranskyy2019testing}. Discusses complexity within Quantum computing and complexity needed to elaborate verification and validation on QPs.
 
 \vspace{15pt}
 \subsection{Assertions; 22 June 2019}
-Statistical assertions for validating patterns and finding bugs in quantum programs \cite{huang2019statistical}.
+Yipeng Huang and Margaret Martonosi presented this paper in 2019, under the tittle: \textit{"Statistical assertions for validating patterns and finding bugs in quantum programs"} \cite{huang2019statistical}. The authors present the idea of using assertions to debug quantum algorithms, they classify them on classical, superposition and entanglement assertions. They will use chi-square test to compare distribution if needed.\newline
+
+The authors propose a test case with Shor's algorithm. They are going to study different components of the algorithm such as QFT or multiplication subroutines inside of QFT doing unit testing. They quickly overview Grover's search algorithm, and how they can reverse the computations to check assertions. [Deep read needed]
 
 \vspace{15pt}
 \subsection{Runtime Assertions; 01 July-Dec 2019}
@@ -333,6 +352,10 @@ To conclude this approach, let's consider some potential future work that is eit
 \end{itemize}
 
 \vspace{15pt}
+\subsection{Quantum size and structure metrics; 01-02 June 2021}
+Some size and structure metrics for quantum software\cite{zhao2021some}
+
+\vspace{15pt}
 \subsection{QuSBT; 29 September 2021}
 
 Generating Failing Test Suites for Quantum Programs With Search \cite{wang2021generating}
@@ -396,10 +419,19 @@ The authors conducted experiments using four different QPs to evaluate Muskit, y
 Application of Combinatorial Testing to Quantum Programs \cite{wang2021application}
 
 \vspace{15pt}
+\subsection{Quantum bug fixes; 15-18 March 2022}
+
+\cite{luo2022comprehensive}
+
+\vspace{15pt}
 \subsection{Sequence to Sequence model for QSharp ; 04-13 April 2022}
 
 A Preliminary Study on Generating Well-Formed
 $Q\#$ Quantum Programs for Fuzz Testing 
+
+\vspace{15pt}
+\subsection{Debugging QC, 4 May 2022}
+A Tool For Debugging Quantum Circuits \cite{metwalli2022tool}
 
 \vspace{15pt}
 \subsection{QPs testing with MR; May 2022}
@@ -488,24 +520,110 @@ Quantum Software Testing: Current Trends and Emerging Proposals \cite{de2022quan
 Asserting the correctness of Shor implementations using metamorphic testing \cite{costa2022asserting}.
 
 \vspace{15pt}
-\subsection{Automatic test case generation; 09 November 2022}
+\subsection{Automatic test circuit generation; 09 November 2022}
 
-Automatic generation of test circuits for the verification of Quantum deterministic algorithms \cite{garcia2022automatic}
+Garcia et al. presented a preliminary work at the end of 2022 tittle: \textit{"Automatic generation of test circuits for the verification of Quantum deterministic algorithms"} \cite{garcia2022automatic}. The authors want to introduce test cases to be run within the machine. The idea is to embed the quantum circuit under test, CuT, in a QP that checks if the expected output is the same than the computed output, producing a verdict for the test case and not the outputs.\newline
 
-2023 version \cite{garcia4421955automatic}
+They reproduce this idea with the adder algorithm for two qubits, using a correct test suite and a modified one to observe how the program shows the non matching results, generating a quantum test circuit, QTC.\newline
+
+In my opinion, one of the points to highlight from this approach is the increased number of qubits used, as we can see on Figure \ref{Fig:GarciaAdder}. The original adder needed 4 qubits and the whole system to verify the test suite needs 9. A similar approach was used previously by Abreu et al. in \cite{abreu2022metamorphic} to represent the output of a metamorphic rule.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{TFM/photos/GarciaAdder.png}
+        \caption{Adder QTC \cite{garcia2022automatic}} 
+        \label{Fig:GarciaAdder}
+\end{figure}
+
+There is a new version of this paper where the authors delve into this approach and have new study cases, the title is: \textit{"Automatic generation of test circuits for deterministic quantum algorithms"} \cite{garcia4421955automatic} which is still on pre print state.
 
 \vspace{15pt}
 \subsection{Coverage Criteria for Quantum Software Testing; 01 March 2023}
 
-Formalization of Structural Test Cases Coverage Criteria for Quantum Software Testing \cite{kumar2023formalization}
+Ajay Kumar presented the paper titled: \textit{"Formalisation of Structural Test Cases Coverage Criteria for Quantum Software Testing"} \cite{kumar2023formalization} where he wanted to introduce the concept of cyclomatic complexity in quantum to give an understanding of the quantum testing complexity, the original concept was introduced by McCabe in 1976\cite{mccabe1976complexity}. The author define as \textbf{cyclomatic complexity} for quantum, the number of independent paths and paths generated due to the superposition of each control qubit. We will see how this concept will lead us to a structural coverage criteria to test QPs.\newline
+
+McCabe\cite{mccabe1976complexity} introduced the concept of cyclomatic complexity based on graph theory. Cyclomatic complexity is a quantitative metric for finding the number of independent paths in a control flow graph. If we have a control flow graph with n nodes, e edges, and p-connected components then $e-n+2p$ is its complexity. He proved that the cyclomatic complexity of n-different modules of a program is equal to the sum of the cyclomatic complexity of all modules.\newline
+
+If we focus now into quantum, we have 3 different possibilities for control qubits:
+
+\begin{itemize}
+    \item Control qubit is $|1\rangle$ or $|0\rangle$, the we are in the same situation as classical computing, with its complexity being defined by $e-n+2p$.
+    \item Control qubit is in superposition. Then we need to consider a test case that cover that state. If there is $c$ instances of control qubits in the QP, then cyclomatic complexity will be $e-n+2p+c$
+\end{itemize}
+
+Let us see now different control flow graphs for different gates, Figure \ref{FIG:KumarCFG}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TFM/photos/KumarCNOT.png}
+        \caption{CNOT $(i,j)$ control flow graph.} 
+        \label{Fig:KumarCNOT}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[H]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TFM/photos/KumarToffoli.png}
+        \caption{Toffoli $(i,j,k)$ control flow graph.} 
+        \label{Fig:KumarToffoli}
+    \end{subfigure}
+        \caption{Two possible control flow graphs \cite{kumar2023formalization}. }
+    \label{FIG:KumarCFG}
+ \end{figure}
+
+Let us see the possible paths in Figure \ref{Fig:KumarToffoli} :
+\begin{itemize}
+    \item Linear Independent Path 1: A, B, C, D.
+    \item Linear Independent Path 2: A, D.
+    \item Linear Independent Path 3: A, B, D.
+    \item Superposition Path 1 (Control qubit $|i\rangle$ in superposition): A, $\alpha|\text{B}\rangle\text{CD}+\beta|\text{B}\rangle$ where $\alpha,\beta \in \mathbb{C}$ and $|\alpha|^{2}+|\beta|^{2}=1$.
+    \item Superposition Path 2 (Control qubit $|j\rangle$ in superposition): A, B, $\alpha|\text{C}\rangle\text{D}+\beta|\text{C}\rangle$ where $\alpha,\beta \in \mathbb{C}$ and $|\alpha|^{2}+|\beta|^{2}=1$
+\end{itemize}
+
+The authors then present some coverage criteria for 1, 2 or more qubits, taking into accounts what gates are in use and with 2 assumptions: all gates are reachable and QP optimised, i.e. not two consecutive H gates. Concluding that this criteria should be explored as they have just been introduced towards cyclomatic complexity and the criteria only covers quantum control.
 
 \vspace{15pt}
-\subsection{QP testing subroutines; 30 Jun 2023}
+\subsection{Testing Multi-Subroutine Quantum Programs; 4 Jul 2023}
 
-Testing multi-subroutine quantum programs: From unit testing to integration testing \cite{long2023testing}
+Peixun Long and Jianjun Zhao unveiled their paper, titled \textit{"Testing Multi-Subroutine Quantum Programs: From Unit Testing to Integration Testing"} \cite{long2023equivalence}, in July 2023, building upon their earlier work presented in \cite{long2023testing}. Their objective is to introduce novel testing techniques tailored to the unique challenges and characteristics associated with multi-subroutine quantum programs.\newline
 
-\subsection{QP black-box testing; 4 Jul 2023}
-Equivalence, Identity, and Unitarity Checking in Black-Box Testing of Quantum Programs \cite{long2023equivalence}
+Until now, the majority of research efforts have predominantly concentrated on testing small or fixed-scale quantum programs, without the complexities inherent in practical quantum programs featuring multiple subroutines and a blend of classical-quantum inputs and outputs. The authors aim to bridge this gap in the existing literature, delving deeper into the intricacies posed by such multifaceted quantum programs.\newline
+
+The authors focused their research in the following RQ:
+\begin{itemize}
+    \item[] \textbf{RQ1}: What are the critical properties of multi-subroutine quantum programs, and how do they impact testing?
+    \item[] \textbf{RQ2}: Are our unit testing design strategies effective for testing various quantum subroutines?
+    \item[] \textbf{RQ3}: Is it necessary to cover both classical and superposition states as inputs to ensure adequate test coverage?
+    \item[] \textbf{RQ4}: How effectively does the Superposition-Cover-All-Qubit (SCAQ) criterion reveal bugs in quantum programs?
+    \item[] \textbf{RQ5}: Are our testing design strategies effective for testing multi-subroutine quantum programs?
+\end{itemize}
+
+To answer these questions, they propose Q-UML diagrams to define unit testing and integration testing between the subroutines.
+\begin{itemize}
+    \item[] \textbf{A-RQ1}: Focused on the approach to a QP from different perspectives: Program structure, subroutines, IO types. The authors defined four IO types in subroutines: Classical, Generate-Quantum, Detect-Quantum and Transform, represented in the Figure \ref{Fig:IOTypes}.
+    \item[] \textbf{A-RQ2}: From IO types showed in RQ1, the authors propose 17 subroutines to cover all four types. They design a unit testing plan for each subroutine, this plans could be seen in Table 5, Section 8 of \cite{long2023testing}.
+    \item[] \textbf{A-RQ3/4}: They proceed with experiments in the subroutines \textit{CRk, Teleport, Empty, Reverse, MultiSWAP} and \textit{QFT} using mutation testing. They acquire as mutation operators: quantum gate (GM), subroutine(SM), classical(CM) and measurement mutation(MM). Being CM and SM two new mutations types no used in previous research. To be able to answer the specific questions, they group the input in three types: classical input (CI), random two-value superposition input (RTI) and complementary superposition input (CSI).\newline
+    From the experiments we can observe that the trigger rate is higher for RTI than CI and therefore the necessity of covering classical and quantum inputs. CSI has the highest trigger rate giving this an answer to RQ4 where a larger extent of superposition input states produces better results.
+    \item[] \textbf{A-RQ5}: The idea is to prove this approach for QPs. To evaluate RQ5, the authors propose three case studies: Quantum phase estimations, Shor's algorithm and Linear system solver. The aim of choosing this QPs is the variety of subroutines included on each. The authors present for each case their corresponding Q-UML diagram to help them delve into the testing design. They obtained the following insights:
+    \begin{itemize}
+        \item[$\cdot$] In the top-down integration, quantum subroutines with an IO type of "classical" can be substituted with equivalent classical subroutines.
+        \item[$\cdot$] If feasible, it is recommended to prioritise the adoption of transform-based methods for checking the running output.
+        \item[$\cdot$] A recommended testing approach is systematically increasing the testing scale, starting from small-scale scenarios and gradually progressing to larger ones.
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{TFM/photos/LongEqIOTypes.png}
+        \caption{IO types \cite{long2023equivalence}} 
+        \label{Fig:IOTypes}
+\end{figure}
+
+\vspace{15pt}
+\subsection{Tool for equivalent mutants; PrePrint}
+
+Development of a tool for finding equivalent mutants in quantum program: a perspective to measure the quality of quantum software. \cite{kumar2022development}
 
 \section{Future work}
 \label{Ch3.3:FutureWork}
