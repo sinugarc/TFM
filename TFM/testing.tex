@@ -444,11 +444,27 @@ A Tool For Debugging Quantum Circuits \cite{metwalli2022tool}
 Metamorphic testing of oracle quantum programs \cite{abreu2022metamorphic}
 
 \vspace{15pt}
-\subsection{MutTG; 08 July 2022}
+\subsection{MutTG; 08 July 2022*}
 
 Wang et al. presented the article with title: \textit{"Mutation-Based Test Generation for Quantum Programs with Multi-Objective Search"}\cite{wang2022mutation} The authors adopted the same theoretical framework as they applied on \cite{ali2021assessing} and \cite{wang2021quito}, those papers were presented previously on ****. Defining two new concepts of possible output failures directly connected to the names of the appropriate oracles.\newline
 
-The authors propose a search-based approach, called MutTG, that tries to generate the minimal test suite killing all the mutants.
+The authors propose a search-based approach, called MutTG, that tries to generate the minimal test suite killing all the mutants. They define an individual of the search as a set of $k$ elements, if there is $k$ mutants. Where this elements provide from the testing domain or anything else not in the testing domain. This will represent possible set of tests with cardinal lower than $k$.\newline
+
+MutTG applies and algorithm on each set of test cases. Saving dictionaries if a test killed the mutant or if it didn't, once one mutant is killed, the algorithm loop with the following mutant without testing the remaining test cases. We will call $KM$ the dictionary of pairs $<t,{M_{1},..,M_{n_{t}^{kill}}}>$, if $t$ killed $m_{i}$. And, analogous $NKM$, if $t$ does not kill $m_{j}$. This dictionaries are global and they will be used in the following executions, starting from empty dictionaries.\newline
+
+The authors idea is to asses with this dictionaries if a mutant is highly likely to be an equivalent mutant, they create this functions:
+\begin{itemize}
+    \item $discFactor$(Mutant, $NKM$): The discount factor is going to be the percentage between the number of tests that have not killed the mutant and the number of possible test in the domain.
+    \item $notKilledScore$(Mutant,search, $KM$, $NKM$): The function gives a score to each mutant:
+    \begin{itemize}
+        \item[$\cdot$] 0, if it has been killed on this search.
+        \item[$\cdot$] 1, if it hasn't been kill on this search but it has been killed previously.
+        \item[$\cdot$] 1 - $discFactor$, otherwise.
+    \end{itemize}
+    \item $f_{not\_killed}$(search): Sum of all $notKilledScore$.
+\end{itemize}
+
+Now they set up an experiment to evaluate this approach.
 
 \vspace{15pt}
 \subsection{QMutPy; 29 July 2022}
