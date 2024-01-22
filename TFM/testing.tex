@@ -435,8 +435,28 @@ A Preliminary Study on Generating Well-Formed
 $Q\#$ Quantum Programs for Fuzz Testing 
 
 \vspace{15pt}
-\subsection{Debugging QC, 4 May 2022}
-A Tool For Debugging Quantum Circuits \cite{metwalli2022tool}
+\subsection{Debugging QC, 4 May 2022*}
+Metwalli et al. presented the article with title: \textit{"A Tool For Debugging Quantum Circuits"} \cite{metwalli2022tool} where they introduced a debugging tool developed on Qiskit. The main drive was to provide users with a novel tool which help them debud their quantum programs.\newline
+
+The authors present the general idea for this tool divided in three parts:
+\begin{itemize}
+    \item QP slicer: Which breaks a quantum program in different subprograms.
+    \item Testing individual slices.
+    \item Gate tracking.
+\end{itemize}
+
+The tool has been implemented as an extension of \testit{QuantumCircuit Class}, this way there was no need to create a new whole type. They included 2 new methods which adds \textit{breakBarrier()}, will help up slice the program vertically and \textit{gateInfo()} which provides tehe necessary information about a particular gate. It will introduce functions which will start the debug state, produce slices and obtain prositions and number of a particular gate in a circuit.\newline
+
+Let us see what we include on each part of the tool and how it is going to work.
+\begin{itemize}
+    \item QP slicer: We are going to difference between two types, a vertical slicer which will divide the different slices on the QP and a horizontal slicer which will reduce the number of qubits of each subprogram, being able to slice the ones unused on each subprogram. The slicing could be accumulated, where each new slice it is added to the previous one.
+    \item Testing each slice: The authors idea is to categorise each slide and there is a different testing technique for each category. The version presented categorises the slides by size of the circuit, type of gates involved and their possible effects over states entanglement. There is three different options for test cases: uniform superposition state, specific state or a symmetric state, GHZ, W and Dicke state supported.
+    \item Gate tracking: When an error occurs, one of the possibilities is if the wrong gates have been implemented. Therefore, the authors included a gate tracking in the tool to help with the debugging of the problem.
+\end{itemize}
+
+The authors present an example on how would the slicer works and categorise the different slices, they take the triangle graph problem solver algorithm using Grover's algorithm. The evaluation has been done by the release of a beta version of the tool and it has been distributed within a group of quantum programmers with different levels of expertise in QC. The idea is to asses the capabilities of the tool for any level, including the installation and usage of the tool. The results received by surveys show that it makes it easier and less time consuming to locate the bug using the tool.\newline
+
+The authors focus their next research on providing a larger tool which higher capabilities, including a more accurate categorisation criteria, expansion of gate tracking and develop an automated testing function for commonly used subroutines.
 
 \vspace{15pt}
 \subsection{QPs testing with MR; May 2022*}
