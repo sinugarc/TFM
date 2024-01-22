@@ -439,12 +439,46 @@ $Q\#$ Quantum Programs for Fuzz Testing
 A Tool For Debugging Quantum Circuits \cite{metwalli2022tool}
 
 \vspace{15pt}
-\subsection{QPs testing with MR; May 2022}
+\subsection{QPs testing with MR; May 2022*}
 
-Metamorphic testing of oracle quantum programs \cite{abreu2022metamorphic}
+Abreu et al. presented the article with title: \textit{"Metamorphic testing of oracle quantum programs"}\cite{abreu2022metamorphic} in May 2022. The idea of the authors is to tackle some of the main challenges and key difficulties in quantum computing testing. 
+\begin{itemize}
+    \item Unable to use methods with step-by-step monitoring.
+    \item Quantum states in general are high-dimensional and difficult to interpret, limiting testing to debug misbehaving quantum programs.
+    \item Non existent guidelines for quantum computing testing.
+\end{itemize}
+
+They propose metamorphic testing, MT, to mainly overcome the quantum measurement problem. MR will be specified in the quantum setting, avoiding to measure the quantum state. The proposed approach will show the process by applying it to a simple modular adder implementation, using Grover algorithm to speed up the testing process.\newline
+
+The main idea is to obtain the MR that our implementation under test should fulfil and then find the way of expressing this on a simple quantum way. The authors in the paper they present $MR_0=x +_m 0 = x$, therefore they need to compare the equality of two integers. They will use different adder, as their proposal is under test, to obtain a result of that equality. They will obtain the complementary of one of them and perform the addition, therefore the result should be all bits to 1. \newline
+
+Once the MR have been studied and proposed the approach, the authors study the difference between performing a classical or a quantum approach for verification of MR. Classical approach will raise two main concerns:
+\begin{itemize}
+    \item Do we need to implement the MR as quantum when we performing classical test to the MR?
+    \item Is it possible to perform it in a quantum computing? Taking advantage then of quantum parallelism.
+\end{itemize}
+
+The authors then focus on the quantum approach for MR, with the main base on Grover's algorithm. They expressed how this can fit with Grover's algorithm as the metamorphic rule can be seen as a search function for the failing tests: $f(t)=1$ if the test $t$ fails the metamorphic rule indicated by $f$. Although, this approach faces two challenges:
+
+\begin{itemize}
+    \item Grover algorithm requires that the number of succeded tests are lower than half of the cases. If we are not in this maxim, Monte Carlo approach could be used or the search space could be increased by 1 qubit.
+    \item Grover algorithm does not have to stop when a solution is found. Therefore the number of steps must be know beforehand and the authors propose an hybrid program to make sure we perform enough calls until results are obtained with high probability.
+\end{itemize}
+
+The authors apply directly this approach over the MR defined previously, obtain the expected results. Although, they would like to show how Grover's algorithm behaviour changes under the presence of bugs, therefore they introduce mutants. The results show how the algorithm finds a solution, and consequently we could affirm that it has found the mutant.
+
+We can conclude now with the main contributions of this proposal and some of the challenges still beign faced as future work.
+
+\begin{itemize}
+    \item Metamorphic testing concepts can be applied in QP.
+    \item The whole process is perform in the quantum realm.
+    \item Validity of the approach under the experiments shown in the paper.
+    \item Speed up versus classical approach on MR validation.
+    \item Research needed on the extraction of adequate input test cases and application on different and more complex QP.
+\end{itemize}
 
 \vspace{15pt}
-\subsection{MutTG; 08 July 2022*}
+\subsection{MutTG; 08 July 2022***}
 
 Wang et al. presented the article with title: \textit{"Mutation-Based Test Generation for Quantum Programs with Multi-Objective Search"}\cite{wang2022mutation} The authors adopted the same theoretical framework as they applied on \cite{ali2021assessing} and \cite{wang2021quito}, those papers were presented previously on ****. Defining two new concepts of possible output failures directly connected to the names of the appropriate oracles.\newline
 
