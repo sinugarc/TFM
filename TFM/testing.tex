@@ -77,6 +77,12 @@ The authors idea is to be able to perform testing in the three most widely used 
 \end{itemize}
 
 \vspace{15pt}
+\subsection{Sequence to Sequence model for QSharp ; 04-13 April 2022}
+
+Trinca et al. presented the paper with title \textit{"A Preliminary Study on Generating Well-Formed
+$Q\#$ Quantum Programs for Fuzz Testing"} \cite{trinca2022preliminary}
+
+\vspace{15pt}
 \subsection{Multi-lingual property based approach; May 2022}
 
 A multi-lingual benchmark for property-based testing of quantum programs \cite{pontolillo2022multi}
@@ -424,15 +430,43 @@ The authors conducted experiments using four different QPs to evaluate Muskit, y
 Application of Combinatorial Testing to Quantum Programs \cite{wang2021application}
 
 \vspace{15pt}
-\subsection{Quantum bug fixes; 15-18 March 2022}
+\subsection{Quantum bug fixes comprehensive study; 15-18 March 2022*}
 
-\cite{luo2022comprehensive}
+Luo et al. presented the article with title: \textit{"A Comprehensive Study of Bug Fixes in Quantum Programs"} \cite{luo2022comprehensive}, where they collect all possible bugs they could find in GitHub, Stack Overflow and Stack Exchange about Qiskit, Q\#, Circ and ProjectQ to anylise and study the current bugs present in quantum programs and their fixes.\newline
 
-\vspace{15pt}
-\subsection{Sequence to Sequence model for QSharp ; 04-13 April 2022}
+The authors obtain the bugs and their fix from the cited platforms, then they filter them by three criteria they chosen: related to quantum program, written by developers and valid pre- and post-fixing codes. Once all this capturing and treatment information is done, they proceed to anylise the different bugs. Their aim is to collect all possible information and categorise it by different approaches, the first one was defined by Zhong and Su in \cite{zhong2015empirical} about fault complexity and then one based on Paltenghi and Pradel's work in \cite{paltenghi2022bugs} which clasifies bug patterns. This way they are able to answer their research questions with their findings.
 
-A Preliminary Study on Generating Well-Formed
-$Q\#$ Quantum Programs for Fuzz Testing 
+\begin{itemize}
+    \item[] \textbf{RQ1} Does this bug only occur in quantum programs?
+        \begin{itemize}
+            \item The number of quantum-specific bugs (Above 80$\%$) is much greater that the number of classical bugs.
+        \end{itemize}
+        
+    \item[] \textbf{RQ2} Where is the location of the bug in the programs?
+        \begin{itemize}
+            \item All bugs have been fixed within their source file. This may be misleading, as most of the programs only had the source file.
+            \item Over 70$\%$ of bugs can be fixed modifying one line of code.
+        \end{itemize}
+        
+    \item[] \textbf{RQ3} How complex to fix bugs in quantum programs?
+        \begin{itemize}
+            \item Since single lines fix the bug there is a higher proportion of easy fix QP.
+            \item The most complex bugs are usually related to incorrect implementation method, where the user does not know exactly the correct implementation, but this get reduced with the experience of the user. The problem is that this error is difficult for a bug-fix automation approach.
+        \end{itemize}
+        
+    \item[] \textbf{RQ4} Are there bug patterns in the quantum pro- gram?
+        \begin{itemize}
+            \item Bug patterns, Figure \ref{Fig:bugPatterns}.
+            \item While classical bugs are more evenly distributed over all categories, quantum bugs are mainly concentrated in API-related and math-related.
+        \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.46\textwidth]{TFM/photos/LuoBugPatterns.png}
+        \caption{Bug patterns \cite{luo2022comprehensive}, following \cite{paltenghi2022bugs}} 
+        \label{Fig:bugPatterns}
+\end{figure}
 
 \vspace{15pt}
 \subsection{Debugging QC, 4 May 2022*}
@@ -445,7 +479,7 @@ The authors present the general idea for this tool divided in three parts:
     \item Gate tracking.
 \end{itemize}
 
-The tool has been implemented as an extension of \testit{QuantumCircuit Class}, this way there was no need to create a new whole type. They included 2 new methods which adds \textit{breakBarrier()}, will help up slice the program vertically and \textit{gateInfo()} which provides tehe necessary information about a particular gate. It will introduce functions which will start the debug state, produce slices and obtain prositions and number of a particular gate in a circuit.\newline
+The tool has been implemented as an extension of \textit{QuantumCircuit Class}, this way there was no need to create a new whole type. They included 2 new methods which adds \textit{breakBarrier()}, will help up slice the program vertically and \textit{gateInfo()} which provides tehe necessary information about a particular gate. It will introduce functions which will start the debug state, produce slices and obtain prositions and number of a particular gate in a circuit.\newline
 
 Let us see what we include on each part of the tool and how it is going to work.
 \begin{itemize}
