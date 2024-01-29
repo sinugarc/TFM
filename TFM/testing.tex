@@ -425,9 +425,29 @@ The authors conducted experiments using four different QPs to evaluate Muskit, y
 . Until now, all mutations had been performed manually. The paper identifies a limitation that Muskit currently faces, it is unable to detect equivalent mutants. The authors express concerns about the possibility that these quantum mutation operators may be related to each other in terms of the killability of their mutants. This leaves room for exploration in theoretical and experimental future works, presenting an area that could be further investigated.
 
 \vspace{15pt}
-\subsection{QuCat; 06-10 December 2021}
+\subsection{QuCat; 06-10 December 2021*}
 
-Application of Combinatorial Testing to Quantum Programs \cite{wang2021application}
+Wang et al. presented \textit{Application of Combinatorial Testing to Quantum Programs} \cite{wang2021application} in 2021, where they propose an approach called QuCAT for systematic and automated testing. The main definitions are the usual defined for Wang et al. as we could see them defined on "Ref generation needed for subsec".\newline
+
+QuCAT generates combinatorial test suites using different generation algorithms such as AETG 19 \cite{cohen1997aetg}, IPO 20 \cite{lei1998parameter}, IPOG \cite{lei2007ipog}. The idea for their experiments is to evaluate the effectiveness of using combinatorial testing, CT, for quantum programmes in two different scenarios, first will generate a test suite for a designated strength and then an incremental strength. To asses QuCAT the propose an experiment with 6 algorithms with injected faults. Let us see the RQ proposed by the authors and their answers:
+
+\begin{itemize}
+    \item[] \textbf{RQ1} How do applications of CT with different strengths compare to each other in terms of cost and effectiveness?
+        \begin{itemize}
+            \item CT with lower strength has significantly less cost, associated to the size.
+            \item Their analysis shows that CT with a higher strength will be more effective, although for easy faults CT can achieve good results with a lower strength.
+        \end{itemize}
+    \item[] \textbf{RQ2} How is the effectiveness of CT with different strengths as compared to random testing?
+        \begin{itemize}
+            \item On average, CT has a higher success on fault detection that random approach for all strengths.
+        \end{itemize}
+    \item[] \textbf{RQ3} How quickly can CT find a fault as compared to random testing?
+        \begin{itemize}
+            \item CT can find faults more quickly than random, results are from scenario 2, for all faulty programs.
+        \end{itemize}
+\end{itemize}
+
+The authors propose as future work the development of a fault localisation approach for quantum programs from this results. As they will keep testing this approach with more complex QP.
 
 \vspace{15pt}
 \subsection{Quantum bug fixes comprehensive study; 15-18 March 2022*}
