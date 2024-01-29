@@ -552,7 +552,7 @@ We can conclude now with the main contributions of this proposal and some of the
 \end{itemize}
 
 \vspace{15pt}
-\subsection{MutTG; 08 July 2022***}
+\subsection{MutTG; 08 July 2022*}
 
 Wang et al. presented the article with title: \textit{"Mutation-Based Test Generation for Quantum Programs with Multi-Objective Search"}\cite{wang2022mutation} The authors adopted the same theoretical framework as they applied on \cite{ali2021assessing} and \cite{wang2021quito}, those papers were presented previously on ****. Defining two new concepts of possible output failures directly connected to the names of the appropriate oracles.\newline
 
@@ -597,8 +597,18 @@ Research questions and results:
 
 \begin{itemize}
     \item[] \textbf{RQ1} What is the influence of the discount factor on the effectiveness of the search of MutTG?
-    \item[] \textbf{RQ2} How does the difficulty of the benchmarks affect  the effectiveness of MutTG?
+        \begin{itemize}
+            \item MutTG shows as the most effective if there is any difference between them.
+            \item The effectiveness improvement can be reflected on the experiments with higher difficulty which has a higher amount of equivalent mutants.
+        \end{itemize}
+    \item[] \textbf{RQ2} How does the difficulty of the benchmarks affect the effectiveness of MutTG?
+        \begin{itemize}
+            \item The authors results shows that difficulty has a big impact on test suite size, even when sometimes the value could be really low, there is cases where not even all non-equivalent mutants are killed even with more than 500 generations. 
+        \end{itemize}
     \item[] \textbf{RQ3} How does the number of equivalent mutants in the targeted mutants set affect the effectiveness of MutTG?
+        \begin{itemize}
+            \item It is more challenging to kill non-equivalent mutants if the number of equivalent ones are lower, as expected just due to the number of mutants in place.
+        \end{itemize}
 \end{itemize}
 
 \vspace{15pt}
