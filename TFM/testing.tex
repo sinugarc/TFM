@@ -286,12 +286,21 @@ The authors conclude the article by summarising the completed work, emphasising 
 Projection-based runtime assertions for testing and debugging Quantum programs \cite{li2020projection}
 
 \vspace{15pt}
-\subsection{QCEC; February 2021}
+\subsection{QCEC; February 2021*}
 
-QCEC: A JKQ tool for quantum circuit equivalence checking 
+Bulgholzer et al. presented in 2021 the tool QCEC in the paper with title: \textit{QCEC: A JKQ tool for quantum circuit equivalence checking} \cite{burgholzer2021qcec}. The authors present QCEC as an equivalent checker tool developed in C++ as part of JKQ toolset although they presented the binding for python users.\newline
+
+The idea behind this method is that quantum programs are reversible if measurement has not taken place, therefore we can compute the inverse and check if the product produce the identity matrix. The methods implemented in QCEC, which will be summarised in Figure \ref{Fig:QCEC}, were presented previously in their papers \cite{burgholzer2020improved}\cite{burgholzer2020power}\cite{niemann2015qmdds}\cite{burgholzer2020verifying}\cite{burgholzer2021random}. The authors conclude that due to the generality of the tool, it could be specified for an specific scenario and even incorporated to other languages.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{TFM/photos/QCEC.png}
+        \caption{QCEC methods \cite{burgholzer2021qcec}.} 
+        \label{Fig:QCEC}
+\end{figure}
 
 \vspace{15pt}
-\subsection{QuanFuzz; 12-16 April 2021}
+\subsection{QuanFuzz; 12-16 April 2021 W}
 
 Check! First article on 16 Oct 2018 \cite{wang2018quanfuzz}
 Poster: Fuzz Testing of Quantum Program 
@@ -361,7 +370,7 @@ To conclude this approach, let's consider some potential future work that is eit
 \end{itemize}
 
 \vspace{15pt}
-\subsection{QuSBT; 29 September 2021}
+\subsection{QuSBT; 29 September 2021 W}
 
 Generating Failing Test Suites for Quantum Programs With Search \cite{wang2021generating}
 
