@@ -8,11 +8,11 @@ from qiskit.circuit.gate import Gate
 
 # Gate equivalence classes
 
-mutableGateSet=('x','h','z','y','tdg','t','sx','sdg','s','id','i','u1','r','rz','ry','rx','p','u2','u3','u',
+mutableGateSet=('x','h','z','y','tdg','t','sx','sdg','s','id','u1','r','rz','ry','rx','p','u2','u3','u',
                 'swap','iswap', 'dcx', 'cz', 'cy','cx', 'csx','ch','rzz','rzx','ryy','rxx','cu1','crz','cry',
-                'crx','cp','gms','cswap','ccx')
+                'crx','cp','cswap','ccx') #'i','gms'
 
-gateEquivalenceDict = {"1q0p" : ['x','h','z','y','t','sx','sdg','s','tdg','id','i'],
+gateEquivalenceDict = {"1q0p" : ['x','h','z','y','t','sx','sdg','s','tdg','id'], #'i'
                        "1q1p" : ['p','u1','r','rz','ry','rx'], 
                        "1q2p" : ['u2'],
                        "1q3p" : ['u','u3'], 
