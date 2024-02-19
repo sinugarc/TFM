@@ -3,6 +3,7 @@ from basicFunctions import xor
 
 from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister
 from qiskit.circuit import Instruction
+from qiskit.circuit.gate import Gate
 
 def BV_Alg_MT(n):
     
@@ -44,7 +45,7 @@ def sumgate(n: int) -> QuantumCircuit:
 
 def BV_TestMT3_Output(qc: QuantumCircuit, n: int):
     suma = sumgate(n)
-    sgate = suma.to_gate(label='  Metamorphic \n\n Relation \n\n Outputs')
+    sgate = suma.to_instruction(label='  Metamorphic \n\n Relation \n\n Outputs')
     qc.append(sgate, range(3*n+2))
     for i in range(n):
         qc.measure(2*(n+1)+i, i)
@@ -54,7 +55,7 @@ def BV_TestMT3_Input(s : str) -> Instruction:
     for i in range(len(s)):
         if s[i]=="1":
             auxqc.x(i)
-    inp = auxqc.to_gate(label='  Metamorphic \n\n Relation \n\n Inputs')
+    inp = auxqc.to_instruction(label='  Metamorphic \n\n Relation \n\n Inputs')
     return inp
 
 def BV_MT3(mutant:QuantumCircuit, inputs: [str]) -> QuantumCircuit:

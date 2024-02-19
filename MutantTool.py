@@ -4,6 +4,7 @@ import math
 from qiskit import QuantumCircuit, QuantumRegister
 from qiskit.circuit import CircuitInstruction, Instruction, Qubit, Clbit
 from qiskit.tools.visualization import circuit_drawer
+from qiskit.circuit.gate import Gate
 
 # Gate equivalence classes
 
@@ -11,15 +12,20 @@ mutableGateSet=('x','h','z','y','tdg','t','sx','sdg','s','id','i','u1','r','rz',
                 'swap','iswap', 'dcx', 'cz', 'cy','cx', 'csx','ch','rzz','rzx','ryy','rxx','cu1','crz','cry',
                 'crx','cp','gms','cswap','ccx')
 
-gateEquivalenceDict = {"1q0p" : ['x','h','z','y','tdg','t','sx','sdg','s','id','i'],
-                       "1q1p" : ['u1','r','rz','ry','rx'], #'p'
+gateEquivalenceDict = {"1q0p" : ['x','h','z','y','t','sx','sdg','s','tdg','id''i'],
+                       "1q1p" : ['p','u1','r','rz','ry','rx'], 
                        "1q2p" : ['u2'],
-                       "1q3p" : ['u3','u'],
+                       "1q3p" : ['u','u3'], 
                        "2q0p" : ['swap','iswap', 'dcx', 'cz', 'cy','cx', 'csx','ch'],
                        "2q1p" : ['rzz','rzx','ryy','rxx','cu1','crz','cry','crx','cp'],
-                       "3q0p" : ['gms','cswap','ccx'] }  #Equivalent weight on randomness????
+                       "3q0p" : ['cswap','ccx'] #'gms'
+                      }
 
-# ms was deprecated, use gms instead
+# Equivalent weight on randomness????
+
+"""
+QiskitError: "Cannot unroll the circuit to the given basis, ['ccx', 'cp', 'cswap', 'csx', 'cu', 'cu1', 'cu2', 'cu3', 'cx', 'cy', 'cz', 'delay', 'diagonal', 'h', 'id', 'initialize', 'mcp', 'mcphase', 'mcr', 'mcrx', 'mcry', 'mcrz', 'mcswap', 'mcsx', 'mcu', 'mcu1', 'mcu2', 'mcu3', 'mcx', 'mcx_gray', 'mcy', 'mcz', 'multiplexer', 'p', 'pauli', 'r', 'roerror', 'rx', 'rxx', 'ry', 'ryy', 'rz', 'rzx', 'rzz', 's', 'sdg', 'swap', 'sx', 'sxdg', 't', 'tdg', 'u', 'u1', 'u2', 'u3', 'unitary', 'x', 'y', 'z', 'for_loop', 'if_else', 'kraus', 'qerror_loc', 'quantum_channel', 'roerror', 'save_amplitudes', 'save_amplitudes_sq', 'save_clifford', 'save_density_matrix', 'save_expval', 'save_expval_var', 'save_matrix_product_state', 'save_probabilities', 'save_probabilities_dict', 'save_stabilizer', 'save_state', 'save_statevector', 'save_statevector_dict', 'save_superop', 'save_unitary', 'set_density_matrix', 'set_matrix_product_state', 'set_stabilizer', 'set_statevector', 'set_superop', 'set_unitary', 'superop', 'while_loop']. Instruction gms not found in equivalence library and no rule found to expand."
+"""
 
 class Placeholder(CircuitInstruction):
     def __init__(self,  num_qubits, qubits, name = "Input", num_clbit=0, clbits=[], param=[], label="  Input  "):
@@ -103,8 +109,8 @@ def mutant_gen_insert_gate(testQC:QuantumCircuit) -> QuantumCircuit:
     
     #It may take len(mutant.data) as index, due to being an insertion
     index = random.randint(0,len(mutant.data))
-    
-    gate_num_qubits = random.randint(0,mutant.num_qubits-1)
+
+    gate_num_qubits = random.randint(1,max(3,mutant.num_qubits))
         
     gate_qubits = tuple(random.sample(mutant.qubits, gate_num_qubits))
     
@@ -239,8 +245,8 @@ def QCSetUp (mutant: QuantumCircuit, inp: QuantumCircuit) -> Instruction:
     while not swap and i < len(mutRes.data):
         
         if mutRes.data[i].operation.name == "Input":
-            gate = inp.to_gate(label=" Input ")
+            gate = inp.to_instruction(label=" Input ")
             mutRes.data[i].operation = gate
         i += 1
     
-    return mutRes.to_gate()
+    return mutRes.to_instruction()
