@@ -12,12 +12,12 @@ mutableGateSet=('x','h','z','y','tdg','t','sx','sdg','s','id','i','u1','r','rz',
                 'crx','cp','gms','cswap','ccx')
 
 gateEquivalenceDict = {"1q0p" : ['x','h','z','y','tdg','t','sx','sdg','s','id','i'],
-                       "1q1p" : ['u1','r','rz','ry','rx','p'],
+                       "1q1p" : ['u1','r','rz','ry','rx'], #'p'
                        "1q2p" : ['u2'],
                        "1q3p" : ['u3','u'],
                        "2q0p" : ['swap','iswap', 'dcx', 'cz', 'cy','cx', 'csx','ch'],
                        "2q1p" : ['rzz','rzx','ryy','rxx','cu1','crz','cry','crx','cp'],
-                       "3q0p" : ['gms','cswap','ccx'] }
+                       "3q0p" : ['gms','cswap','ccx'] }  #Equivalent weight on randomness????
 
 # ms was deprecated, use gms instead
 
@@ -102,7 +102,7 @@ def mutant_gen_insert_gate(testQC:QuantumCircuit) -> QuantumCircuit:
     mutant = testQC.copy()
     
     #It may take len(mutant.data) as index, due to being an insertion
-    index = random.randint(0,len(mutant.data)) 
+    index = random.randint(0,len(mutant.data))
     
     gate_num_qubits = random.randint(0,mutant.num_qubits-1)
         
@@ -236,9 +236,11 @@ def QCSetUp (mutant: QuantumCircuit, inp: QuantumCircuit) -> Instruction:
     mutRes.data=[mutant.data[i] for i in range(len(mutant.data)) if mutant.data[i].operation.name != "barrier"]
     swap=False
     i=0
-    while not swap and i < len(mutant.data):
+    while not swap and i < len(mutRes.data):
+        
         if mutRes.data[i].operation.name == "Input":
             gate = inp.to_gate(label=" Input ")
             mutRes.data[i].operation = gate
         i += 1
+    
     return mutRes.to_gate()
