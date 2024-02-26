@@ -11,7 +11,8 @@ svsim = Aer.get_backend('aer_simulator')
 simulator = QasmSimulator()
 
 def mutation_MT(original_algorithm : Callable[[int],QuantumCircuit], MR_algorithm : Callable[[QuantumCircuit, list[str]],QuantumCircuit],
-                num_qubits: int, num_mutants : int, rep : int, num_max_inputs=20, input_OnesComplement=False) -> tuple[list[bool],float,set[tuple[str,str]]]: 
+                num_qubits: int, num_mutants : int, rep : int, num_max_inputs=20, input_OnesComplement=False) \
+                -> tuple[list[bool],float,tuple[int,int],set[tuple[str,str]]]: 
     
     originalQC = original_algorithm(num_qubits)
     mutants = mutant_generator(originalQC, num_mutants)
@@ -54,4 +55,4 @@ def mutation_MT(original_algorithm : Callable[[int],QuantumCircuit], MR_algorith
 
     print("Set of inputs used: ", final_inputs)
 
-    return (results, mutation_score, final_inputs)
+    return (results, mutation_score, (mutants_killed, total), final_inputs)
