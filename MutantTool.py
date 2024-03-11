@@ -25,15 +25,6 @@ gateEquivalenceDict = {"1q0p" : ['x','h','z','y','t','sx','sdg','s','tdg','id'],
 num_elem=[[len(gateEquivalenceDict[str(i)+"q"+str(j)+"p"]) for j in range(4) 
            if (str(i)+"q"+str(j)+"p" in gateEquivalenceDict.keys())] for i in range(1,4)]
 
-#Def of partial weights as constant!! Due 11-3-24
-#No need to delete barriers if to_instruction is used instead of to_gate.
-            # The difference is that to_gate() needs unitary gates under the program. Therefore, 
-            # if there is any barrier or under_circuit generated, it will reaise an exception.
-
-
-"""
-QiskitError: "Cannot unroll the circuit to the given basis, ['ccx', 'cp', 'cswap', 'csx', 'cu', 'cu1', 'cu2', 'cu3', 'cx', 'cy', 'cz', 'delay', 'diagonal', 'h', 'id', 'initialize', 'mcp', 'mcphase', 'mcr', 'mcrx', 'mcry', 'mcrz', 'mcswap', 'mcsx', 'mcu', 'mcu1', 'mcu2', 'mcu3', 'mcx', 'mcx_gray', 'mcy', 'mcz', 'multiplexer', 'p', 'pauli', 'r', 'roerror', 'rx', 'rxx', 'ry', 'ryy', 'rz', 'rzx', 'rzz', 's', 'sdg', 'swap', 'sx', 'sxdg', 't', 'tdg', 'u', 'u1', 'u2', 'u3', 'unitary', 'x', 'y', 'z', 'for_loop', 'if_else', 'kraus', 'qerror_loc', 'quantum_channel', 'roerror', 'save_amplitudes', 'save_amplitudes_sq', 'save_clifford', 'save_density_matrix', 'save_expval', 'save_expval_var', 'save_matrix_product_state', 'save_probabilities', 'save_probabilities_dict', 'save_stabilizer', 'save_state', 'save_statevector', 'save_statevector_dict', 'save_superop', 'save_unitary', 'set_density_matrix', 'set_matrix_product_state', 'set_stabilizer', 'set_statevector', 'set_superop', 'set_unitary', 'superop', 'while_loop']. Instruction gms not found in equivalence library and no rule found to expand."
-"""
 
 class Placeholder(CircuitInstruction):
     def __init__(self,  num_qubits, qubits, name = "Input", num_clbit=0, clbits=[], param=[], label="  Input  "):
@@ -77,10 +68,10 @@ def mutant_gen_change_gate_properties (testQC:QuantumCircuit, index:int) -> Quan
     This function returns a copy the QC under test changing the qubits and parameters
         on the CircuitInstruction in correspondent index. It obtains randomly a different
         qubit tuple and different parameters according to the gate needs if necessary.
-    """
     
     assert 0 <= index < len(testQC.data)
     assert testQC.data[index].operator.name not in gateEquivalenceDict["1q0p"]
+    """
     
     mutant = testQC.copy()
     
