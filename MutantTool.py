@@ -25,6 +25,11 @@ gateEquivalenceDict = {"1q0p" : ['x','h','z','y','t','sx','sdg','s','tdg','id'],
 num_elem=[[len(gateEquivalenceDict[str(i)+"q"+str(j)+"p"]) for j in range(4) 
            if (str(i)+"q"+str(j)+"p" in gateEquivalenceDict.keys())] for i in range(1,4)]
 
+#Def of partial weights as constant!! Due 11-3-24
+#No need to delete barriers if to_instruction is used instead of to_gate.
+            # The difference is that to_gate() needs unitary gates under the program. Therefore, 
+            # if there is any barrier or under_circuit generated, it will reaise an exception.
+
 
 """
 QiskitError: "Cannot unroll the circuit to the given basis, ['ccx', 'cp', 'cswap', 'csx', 'cu', 'cu1', 'cu2', 'cu3', 'cx', 'cy', 'cz', 'delay', 'diagonal', 'h', 'id', 'initialize', 'mcp', 'mcphase', 'mcr', 'mcrx', 'mcry', 'mcrz', 'mcswap', 'mcsx', 'mcu', 'mcu1', 'mcu2', 'mcu3', 'mcx', 'mcx_gray', 'mcy', 'mcz', 'multiplexer', 'p', 'pauli', 'r', 'roerror', 'rx', 'rxx', 'ry', 'ryy', 'rz', 'rzx', 'rzz', 's', 'sdg', 'swap', 'sx', 'sxdg', 't', 'tdg', 'u', 'u1', 'u2', 'u3', 'unitary', 'x', 'y', 'z', 'for_loop', 'if_else', 'kraus', 'qerror_loc', 'quantum_channel', 'roerror', 'save_amplitudes', 'save_amplitudes_sq', 'save_clifford', 'save_density_matrix', 'save_expval', 'save_expval_var', 'save_matrix_product_state', 'save_probabilities', 'save_probabilities_dict', 'save_stabilizer', 'save_state', 'save_statevector', 'save_statevector_dict', 'save_superop', 'save_unitary', 'set_density_matrix', 'set_matrix_product_state', 'set_stabilizer', 'set_statevector', 'set_superop', 'set_unitary', 'superop', 'while_loop']. Instruction gms not found in equivalence library and no rule found to expand."
@@ -72,10 +77,11 @@ def mutant_gen_change_gate_properties (testQC:QuantumCircuit, index:int) -> Quan
     This function returns a copy the QC under test changing the qubits and parameters
         on the CircuitInstruction in correspondent index. It obtains randomly a different
         qubit tuple and different parameters according to the gate needs if necessary.
-    
-    assert: 0 <= index < len(testQC.data)
-    assert: testQC.data[index].operator.name not in gateEquivalenceDict["1q0p"]
     """
+    
+    assert 0 <= index < len(testQC.data)
+    assert testQC.data[index].operator.name not in gateEquivalenceDict["1q0p"]
+    
     mutant = testQC.copy()
     
     gate_num_qubits = mutant.data[index].operation.num_qubits
@@ -114,7 +120,6 @@ def mutant_gen_insert_gate(testQC:QuantumCircuit) -> QuantumCircuit:
     index = random.randint(0,len(mutant.data)) 
     max_num_qubits = min(3,mutant.num_qubits)
     gate_num_qubits = random.choices(range(1,max_num_qubits), weights = [sum(num_elem[i]) for i in range(max_num_qubits-1)])[0]
-    #Should weights be left as constants?
         
     gate_qubits = tuple(random.sample(mutant.qubits, gate_num_qubits))
     
@@ -237,17 +242,17 @@ def QCSetUp (mutant: QuantumCircuit, inp: QuantumCircuit, DJ2:bool=False) -> Ins
     inp: QuantumCircuit, it represents the input.
     
     This function takes the mutant and the input. Creates a copy of the mutant,
-    inserts the input in the Placeholder and removes all barriers from the circuits.
+    inserts the input in the Placeholder.
     The idea is to convert all into an Instruction for posterior use in MT circuit.
-    We are unable to convert it into a gate if there is non-basic gates.
     """
-    mutRes = mutant.copy_empty_like()
+    mutRes = mutant.copy()
     
-    mutRes.data=[mutant.data[i] for i in range(len(mutant.data)) if mutant.data[i].operation.name != "barrier"]
     swap=False
     i=0
+    
     if DJ2:
         inp.x(inp.num_qubits - 1)
+        
     while not swap and i < len(mutRes.data):
         
         if mutRes.data[i].operation.name == "Input":
