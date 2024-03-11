@@ -258,6 +258,7 @@ def QCSetUp (mutant: QuantumCircuit, inp: QuantumCircuit, DJ2:bool=False) -> Ins
         if mutRes.data[i].operation.name == "Input":
             gate = inp.to_instruction(label=" Input ")
             mutRes.data[i].operation = gate
+            swap = True
         i += 1
     
     return mutRes.to_instruction()
