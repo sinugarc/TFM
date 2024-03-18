@@ -38,11 +38,10 @@ José Ignacio Requeno Jarabo\inst{1}}
 University of Madrid\\C/Prof. José García Santesmases, 9,
 28040 Madrid, Spain}
 %
-\maketitle              % typeset the header of the contribution
+\maketitle           % typeset the header of the contribution
 %
 \begin{abstract}
-The abstract should briefly summarize the contents of the paper in
-150--250 words.
+Quantum computing has been on the rise in recent years, evidenced by a surge in publications on quantum software engineering and testing. Progress in quantum hardware has also been notable, with the introduction of impressive systems like Condor boasting 1121 qubits, and IBM Quantum System Two, which employs three 133-qubit Heron processors. As this technology edges closer to practical application, ensuring the efficacy of our software becomes imperative. Mutation testing, a well-established technique in classical computing, emerges as a valuable approach in this context. In our paper, we aim to introduce a mutation tool tailored for quantum programs in Qiskit, leveraging Qiskit's inherent class structure. Departing from the exhaustive processes of previous works \cite{mendiluze2021muskit} \cite{fortunato2022qmutpy}, we propose a randomized approach and the capability for marking immutable positions within the circuit. This feature facilitates the preservation of program structure, crucial for future applications.
 
 \keywords{Quantum computing \and Mutation tool \and Testing.}
 \end{abstract}
@@ -55,7 +54,7 @@ The abstract should briefly summarize the contents of the paper in
 \input{ToolPaper/empiricalExp}
 \input{ToolPaper/conclusion}
 
-\subsubsection{Acknowledgements} Please place your acknowledgments at
+\subsubsection{Acknowledgements} Please place your acknowledgements at
 the end of the paper, preceded by an unnumbered run-in heading (i.e.
 3rd-level heading).
 
@@ -65,28 +64,8 @@ the end of the paper, preceded by an unnumbered run-in heading (i.e.
 % BibTeX users should specify bibliography style 'splncs04'.
 % References will then be sorted and formatted in the correct style.
 %
-% \bibliographystyle{splncs04}
-% \bibliography{mybibliography}
-%
-\begin{thebibliography}{8}
-\bibitem{ref_article1}
-Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
+\bibliographystyle{splncs04}
+\bibliography{references}
 
-\bibitem{ref_lncs1}
-Author, F., Author, S.: Title of a proceedings paper. In: Editor,
-F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
-Springer, Heidelberg (2016). \doi{10.10007/1234567890}
 
-\bibitem{ref_book1}
-Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
-Location (1999)
-
-\bibitem{ref_proc1}
-Author, A.-B.: Contribution title. In: 9th International Proceedings
-on Proceedings, pp. 1--2. Publisher, Location (2010)
-
-\bibitem{ref_url1}
-LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
-Oct 2017
-\end{thebibliography}
 \end{document}
