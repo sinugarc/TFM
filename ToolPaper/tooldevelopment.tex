@@ -1,8 +1,14 @@
+\newpage
 \section{Tool development}
+
+In this section, we will explain the concepts guiding our tool's development. Our primary aim is to leverage Qiskit's class structure, simplifying the mutation process through high-level operations, eliminating the necessity of delving into the program's source code. The initial framework for this approach was proposed by Luis Llana for an undergraduate thesis in 2022, briefly explored by Jaime De la Vega, and can be accessed at https://github.com/LuisLlana/mutants\_quantum, providing a foundational idea for this tool. Let us introduce some concepts that will shape the structure of our mutants.\newline
 
 \subsection{Insights and expected outcome (RQ)}
 
-Qiskit structure in use, near QASM.
+This tool has been developed for the need of fulfilling our needs towards future research which have not been provided yet by the current quantum mutation tools.\newline
+
+******One of our objectives is to produce mutants which hold a single or several positions stable in the circuit for integrity. If we think about some of the first algorithms develop in quantum computing, they were develope to solve oracle problems, as we could think of Deutsch, Deutsch-Jozsa, Bernstein-Vazirani or Simon. This algorithms does no receive an input as an initiation of the quantum circuit, on the other hand their input is an oracle in a certain part of the circuit, we would then like to ensure this place is hold for such a purpose. We could think as well that we could have subroutines in our programs and such subroutines should not be mutated
+
 
 \subsection{Mutant generation}
 
