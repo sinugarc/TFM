@@ -34,6 +34,18 @@
 
 \usepackage{hyperref}
 
+\usepackage{listings}
+\lstset{
+  language=Python,
+  frame=single,                 
+  captionpos=b,
+  showstringspaces=false,
+  basicstyle=\ttfamily,
+  keepspaces=true,
+  breaklines=true,
+  columns=fullflexible
+}
+
 \hypersetup{
     linktocpage=false,
     colorlinks=false,
@@ -59,12 +71,12 @@
 
 \setcounter{page}{-1}
 
-\input{portada.tex}
+\input{TFM/portada.tex}
     \pdfbookmark[0]{Portada}{PDFPortadaPage}
     
 \begin{spacing}{1.2}
 
-    \input{abstract.tex}
+    \input{TFM/abstract.tex}
        \pdfbookmark[0]{Abstract}{PDFAbstractPage}
 
 \end{spacing}
@@ -82,9 +94,9 @@
 
 \begin{spacing}{1.2}
 
-\input{introduction.tex}
-\input{background.tex}
-\input{testing.tex}
+\input{TFM/introduction.tex}
+\input{TFM/background.tex}
+\input{TFM/testing.tex}
 
 \end{spacing}
 
