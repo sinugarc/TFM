@@ -1,0 +1,14 @@
+Results for 3 qubit Simon with 200 mutants and
+                        Mutant generation arguments: ((), {'seed': 7.5})
+                        Input generation arguments: ([3], {})
+                        Execution arguments: ([], {})
+
+                        Execution time: 4.82 s
+
+                        Results:
+                        Mutants killed: 140
+                        Mutation Score: 70.00%
+                        Total QP executed: 867
+                        Survived mutants indexes: [0, 1, 4, 5, 8, 11, 24, 26, 27, 28, 29, 39, 41, 46, 47, 48, 51, 54, 58, 62, 63, 65, 70, 71, 75, 84, 89, 94, 98, 104, 108, 110, 112, 114, 117, 118, 121, 122, 124, 125, 133, 134, 138, 140, 141, 144, 148, 150, 151, 166, 168, 171, 174, 176, 178, 180, 181, 187, 188, 190]
+                        Successful inputs: {'000', '100', '001'}
+                        Inputs used: ['000', '001', '010', '011', '100', '101', '110', '111']

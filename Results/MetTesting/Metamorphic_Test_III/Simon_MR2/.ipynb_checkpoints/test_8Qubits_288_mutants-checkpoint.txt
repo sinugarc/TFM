@@ -1,0 +1,14 @@
+Results for 8 qubit Simon with 288 mutants and
+                        Mutant generation arguments: ((), {'seed': 1})
+                        Input generation arguments: ([8], {'num_inputs': 10})
+                        Execution arguments: ([], {})
+
+                        Execution time: 13.21 s
+
+                        Results:
+                        Mutants killed: 288
+                        Mutation Score: 100.00%
+                        Total QP executed: 288
+                        Survived mutants indexes: []
+                        Successful inputs: {'11011000'}
+                        Inputs used: ['11011000']

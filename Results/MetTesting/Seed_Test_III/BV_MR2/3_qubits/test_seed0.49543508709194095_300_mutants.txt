@@ -1,0 +1,14 @@
+Results for 3 qubit BV with 300 mutants and
+                        Mutant generation arguments: ((), {'seed': 0.49543508709194095})
+                        Input generation arguments: ([3], {})
+                        Execution arguments: ([], {})
+
+                        Execution time: 4.76 s
+
+                        Results:
+                        Mutants killed: 247
+                        Mutation Score: 82.33%
+                        Total QP executed: 674
+                        Survived mutants indexes: [6, 21, 22, 27, 29, 34, 49, 51, 52, 62, 63, 65, 68, 70, 74, 76, 77, 79, 81, 85, 101, 111, 116, 117, 132, 135, 138, 141, 142, 145, 151, 159, 187, 191, 199, 202, 205, 209, 210, 212, 215, 217, 218, 236, 237, 238, 248, 270, 280, 282, 293, 296, 297]
+                        Successful inputs: {('001', '110'), ('000', '111'), ('010', '101')}
+                        Inputs used: [('000', '111'), ('001', '110'), ('010', '101'), ('011', '100'), ('100', '011'), ('101', '010'), ('110', '001'), ('111', '000')]

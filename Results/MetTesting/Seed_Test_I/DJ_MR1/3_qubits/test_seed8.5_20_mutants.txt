@@ -1,0 +1,14 @@
+Results for 3 qubit DJ with 20 mutants and
+                        Mutant generation arguments: ((), {'seed': 8.5})
+                        Input generation arguments: ([3], {})
+                        Execution arguments: ([], {})
+
+                        Execution time: 0.89 s
+
+                        Results:
+                        Mutants killed: 20
+                        Mutation Score: 100.00%
+                        Total QP executed: 60
+                        Survived mutants indexes: []
+                        Successful inputs: {((1, 0, (0, 2, 4, 7)), (2, 0, 1)), ((1, 0, (0, 1, 4, 6)), (1, 2, 0)), ((1, 0, (0, 1, 2, 5)), (0, 2, 1)), ((0, 0, (0, 3, 6, 7)), (0, 1, 2))}
+                        Inputs used: [((0, 0, (0, 3, 6, 7)), (0, 1, 2)), ((1, 0, (0, 3, 4, 7)), (0, 1, 2)), ((1, 0, (0, 2, 4, 7)), (2, 0, 1)), ((1, 0, (0, 1, 4, 6)), (1, 2, 0)), ((0, 0, (0, 1, 5, 6)), (2, 0, 1)), ((1, 0, (2, 3, 4, 7)), (0, 1, 2)), ((1, 0, (1, 2, 5, 7)), (1, 2, 0)), ((1, 0, (0, 1, 2, 5)), (0, 2, 1))]

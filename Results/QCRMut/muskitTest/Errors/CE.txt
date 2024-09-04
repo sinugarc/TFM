@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/246AddGate_ccx_inGap_13_.py", line 36, in <module>
+    qc.ccx(q[0])
+TypeError: ccx() missing 2 required positional arguments: 'control_qubit2' and 'target_qubit'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/247AddGate_cswap_inGap_13_.py", line 36, in <module>
+    qc.cswap(q[0])
+TypeError: cswap() missing 2 required positional arguments: 'target_qubit1' and 'target_qubit2'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/265AddGate_ccx_inGap_14_.py", line 36, in <module>
+    qc.ccx(q[1])
+TypeError: ccx() missing 2 required positional arguments: 'control_qubit2' and 'target_qubit'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/266AddGate_cswap_inGap_14_.py", line 36, in <module>
+    qc.cswap(q[1])
+TypeError: cswap() missing 2 required positional arguments: 'target_qubit1' and 'target_qubit2'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/284AddGate_ccx_inGap_15_.py", line 36, in <module>
+    qc.ccx(q[2])
+TypeError: ccx() missing 2 required positional arguments: 'control_qubit2' and 'target_qubit'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/285AddGate_cswap_inGap_15_.py", line 36, in <module>
+    qc.cswap(q[2])
+TypeError: cswap() missing 2 required positional arguments: 'target_qubit1' and 'target_qubit2'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/303AddGate_ccx_inGap_16_.py", line 36, in <module>
+    qc.ccx(q[3])
+TypeError: ccx() missing 2 required positional arguments: 'control_qubit2' and 'target_qubit'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/304AddGate_cswap_inGap_16_.py", line 36, in <module>
+    qc.cswap(q[3])
+TypeError: cswap() missing 2 required positional arguments: 'target_qubit1' and 'target_qubit2'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/322AddGate_ccx_inGap_17_.py", line 36, in <module>
+    qc.ccx(q[4])
+TypeError: ccx() missing 2 required positional arguments: 'control_qubit2' and 'target_qubit'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/323AddGate_cswap_inGap_17_.py", line 36, in <module>
+    qc.cswap(q[4])
+TypeError: cswap() missing 2 required positional arguments: 'target_qubit1' and 'target_qubit2'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/341AddGate_ccx_inGap_18_.py", line 36, in <module>
+    qc.ccx(q[5])
+TypeError: ccx() missing 2 required positional arguments: 'control_qubit2' and 'target_qubit'
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/CE/CEMutantsAdapted/342AddGate_cswap_inGap_18_.py", line 36, in <module>
+    qc.cswap(q[5])
+TypeError: cswap() missing 2 required positional arguments: 'target_qubit1' and 'target_qubit2'

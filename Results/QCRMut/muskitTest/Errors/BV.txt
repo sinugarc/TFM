@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add149.py", line 22, in <module>
+    qc.swap(q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add150.py", line 22, in <module>
+    qc.rzz(0, q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add151.py", line 22, in <module>
+    qc.rxx(1.5707963267948966, q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add152.py", line 22, in <module>
+    qc.cx(q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add153.py", line 22, in <module>
+    qc.cz(q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add47.py", line 14, in <module>
+    qc.swap(q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add48.py", line 14, in <module>
+    qc.rzz(3.141592653589793, q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add49.py", line 14, in <module>
+    qc.rxx(0.7853981633974483, q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add50.py", line 14, in <module>
+    qc.cx(q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/srv/home/sinugarc/TFM/Repl/QCRMutExp/muskitTest/BV/BVMutantsAdapted/Add51.py", line 14, in <module>
+    qc.cz(q[6], q[5])
+  File "/srv/home/sinugarc/.pyenv/versions/qiskitMutants/lib/python3.9/site-packages/qiskit/circuit/register.py", line 173, in __getitem__
+    return self._bits[key]
+IndexError: list index out of range
