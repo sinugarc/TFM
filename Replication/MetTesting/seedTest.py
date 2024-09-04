@@ -128,7 +128,7 @@ if __name__ == "__main__":
     
     Rules = {"DJ_MRules": [DJ_test_MR1,DJ_test_MR2],
              "Simon_MRules": [Simon_test_MR2], 
-             "BV_MRules": [BV_test_MR2]}
+             "BV_MRules": [BV_test_MR2,BV_test_MR3]}
     
     Qubits = [3,4,5]
     Mutants = [10,20,30,50,70,100,150,200,300,500]
