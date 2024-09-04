@@ -1,3 +1,0 @@
-Number of mutants generated: 10000
-Seed used: 1
-Execution time: 2.862 s
