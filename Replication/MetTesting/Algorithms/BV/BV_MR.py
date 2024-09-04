@@ -128,17 +128,11 @@ def BV_MR3(mutant:QuantumCircuit, inputs: [str]) -> list[QuantumCircuit]:
     q=QuantumRegister(n, 's+r')
     anc1=QuantumRegister(1, 'anc1')
     q_test=QuantumRegister(n, 'q_test')
+    anc2=QuantumRegister(1, 'anc2')
     c_test=ClassicalRegister(n, 'c_test')
-    qc = QuantumCircuit(q, anc1, q_test, c_test)
+    qc = QuantumCircuit(q, anc1, q_test, anc2, c_test)
     
-    # Inputs relation for BV MR1/2
-    
-    input_relation = BV_TestMT_Input(xor(inputs[0],inputs[1]))
-    qc.append(input_relation,q_test)
-    
-    qc.barrier()
-    
-    # Mutated circuit added to Testing circuit
+    # Mutated circuit added to Testing circuit, composition.
     
     auxInp = QuantumCircuit(q, anc1)
     
@@ -149,8 +143,20 @@ def BV_MR3(mutant:QuantumCircuit, inputs: [str]) -> list[QuantumCircuit]:
     aux=mutant.copy()
     placeHolderSwap(aux,auxInp)
     gate = aux.to_instruction()
-    gate.name=f'  BV_s+r  \n\ns={inputs[0]}\n\nr={inputs[1]}'
+    gate.name=f'  BV_s.BV_r  \n\ns={inputs[0]}\n\nr={inputs[1]}'
     qc.append(gate, q[:]+anc1[:])
+
+    # Mutated circuit added to Testing circuit, xor(inputs).
+    
+    auxInp = QuantumCircuit(q_test, anc2)
+    f=BV_Oracle_Generator(xor(inputs[0],inputs[1]))
+    auxInp.append(f, q_test[:]+anc2[:])
+    
+    aux=mutant.copy()
+    placeHolderSwap(aux,auxInp)
+    gate = aux.to_instruction()
+    gate.name=f'  BV_s+r  \n\ns+r={xor(inputs[0],inputs[1])}'
+    qc.append(gate, q_test[:]+anc2[:])
     
     qc.barrier()
     
