@@ -1,4 +1,4 @@
-# Metamorphic testing in quantum computing
+# Metamorphic Testing in Quantum Computing
 
 Sinhué García Gil's Master's Degree Thesis, Formal Methods in Computer Engineering, UCM/UPM.
 
