@@ -26,7 +26,7 @@ This experiment observes the difference in memory usage between .py and .pgz fil
 
 ## MetTesting
 
-These experiments are configured to use two fewer CPUs than are available on your system. This can be changed in each test file.
+These experiments are configured to use all but two of the available CPUs on your system. This can be changed in each test file.
 
 ### Metamorphic experiment
 
