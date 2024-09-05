@@ -42,14 +42,9 @@ def execution(qCircuits: list[QuantumCircuit], rep: int = 1024, backend = AerSim
         sim = backend()
         
     res=[]
-    #i=0
     
     for qCirc in qCircuits:
-        #print(f"Starting exec on {i}")
         r_qCirc = sim.run(transpile(qCirc,sim),shots=rep).result().get_counts()
-        #print(f"Finished exec on {i}")
         res.append(r_qCirc)
-        #print(f"{i} saved on results")
-        #i += 1
     
     return res
