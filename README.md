@@ -1,6 +1,6 @@
 # Metamorphic Testing in Quantum Computing
 
-Sinhué García Gil's Master's Degree Thesis, Formal Methods in Computer Engineering, UCM/UPM.
+Sinhué García Gil Master Degree Thesis, Formal Methods in Computer Engineering, UCM/UPM.
 
 ## Index
 
@@ -9,4 +9,4 @@ Sinhué García Gil's Master's Degree Thesis, Formal Methods in Computer Enginee
 * The `QCRMut` folder contains all the source code for the Quantum Circuit Random Mutation generator tool.
 * The`Replication` folder contains all the necessary documents to replicate the experiments in the master's thesis. There is a *README.md* file with the appropriate instructions.
 * The `Results` folder contains the results of all experiments. It is divided into two subfolders corresponding to QCRMut and metamorphic testing.
-* `GarciaGilSinhue.pdf` contains the pdf version of the master's thesis.
+* `GarciaGilSinhue.pdf` contains the pdf version of the master thesis.
